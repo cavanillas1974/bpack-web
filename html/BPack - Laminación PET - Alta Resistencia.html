@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPack - Laminación PET de Alta Resistencia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'AlibabaPuHuiTi';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Regular.otf') format('opentype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'AlibabaPuHuiTi';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Medium.otf') format('opentype');
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: 'AlibabaPuHuiTi';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Bold.otf') format('opentype');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'MiSans';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'MiSans';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+
+        :root {
+            --primary-blue: #0044cc;
+            --dark-blue: #0a1a36;
+            --tech-cyan: #00d2ff;
+            --light-grey: #f4f6f9;
+            --text-dark: #1a202c;
+            --text-light: #ffffff;
+            --gradient-overlay: linear-gradient(135deg, rgba(10, 26, 54, 0.95) 0%, rgba(0, 68, 204, 0.8) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'AlibabaPuHuiTi', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            width: 1920px;
+            margin: 0 auto;
+            overflow-x: hidden;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'MiSans', sans-serif;
+            line-height: 1.2;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 48px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--tech-cyan);
+            color: var(--dark-blue);
+            border: 2px solid var(--tech-cyan);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--tech-cyan);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-light);
+            color: var(--dark-blue);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 900px;
+            width: 1920px;
+            background-image: url('../imagenes/https://a.lovart.ai/artifacts/agent/6iuaHJNoo8TVcuoQ.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(10, 26, 54, 0.95) 0%, rgba(10, 26, 54, 0.7) 50%, rgba(10, 26, 54, 0.1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--text-light);
+            max-width: 800px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--tech-cyan);
+            color: var(--tech-cyan);
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-title {
+            font-size: 80px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* TECHNOLOGY SECTION */
+        .technology {
+            background-color: var(--light-grey);
+            position: relative;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .tech-info h2 {
+            font-size: 48px;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+        }
+
+        .tech-info p {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .tech-visual {
+            position: relative;
+            height: 600px;
+            background: var(--dark-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .tech-layer {
+            height: 80px;
+            width: 100%;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            color: var(--text-light);
+            font-family: 'MiSans';
+            font-weight: 700;
+            font-size: 20px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .tech-layer::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--tech-cyan);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tech-layer:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .tech-layer:hover::before {
+            opacity: 1;
+        }
+
+        .tech-layer-pet {
+            background: rgba(0, 210, 255, 0.15);
+            border-color: var(--tech-cyan);
+            color: var(--tech-cyan);
+        }
+
+        .tech-specs-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .tech-spec-item {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+
+        .tech-spec-item i {
+            color: var(--primary-blue);
+            margin-right: 12px;
+            font-size: 24px;
+        }
+
+        /* BENEFITS SECTION */
+        .benefits {
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            color: var(--dark-blue);
+            margin-bottom: 16px;
+        }
+
+        .section-header .line {
+            width: 80px;
+            height: 4px;
+            background: var(--tech-cyan);
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 40px 30px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            height: 100%;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 68, 204, 0.1);
+            border-color: var(--primary-blue);
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 68, 204, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            font-size: 36px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            background: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        .benefit-card h3 {
+            font-size: 24px;
+            color: var(--dark-blue);
+            margin-bottom: 16px;
+        }
+
+        .benefit-card p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* APPLICATIONS SECTION */
+        .applications {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.05) 0%, transparent 20%);
+        }
+
+        .applications h2 {
+            color: var(--text-light);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .app-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--tech-cyan);
+        }
+
+        .app-image {
+            height: 240px;
+            width: 100%;
+            background: #1e293b;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        /* Simulated Images with CSS */
+        .app-img-industrial {
+            background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+        }
+        .app-img-industrial::after {
+            content: '\f216'; /* remixicon building-3-line */
+            font-family: 'remixicon';
+            font-size: 80px;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .app-img-electronic {
+            background: linear-gradient(135deg, #0e7490 0%, #164e63 100%);
+        }
+        .app-img-electronic::after {
+            content: '\f3bf'; /* remixicon cpu-line */
+            font-family: 'remixicon';
+            font-size: 80px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .app-img-pharma {
+            background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
+        }
+        .app-img-pharma::after {
+            content: '\ee7e'; /* remixicon medicine-bottle-line */
+            font-family: 'remixicon';
+            font-size: 80px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .app-img-luxury {
+            background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+        }
+        .app-img-luxury::after {
+            content: '\f255'; /* remixicon vip-diamond-line */
+            font-family: 'remixicon';
+            font-size: 80px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .app-content {
+            padding: 24px;
+        }
+
+        .app-content h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        .app-content p {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        /* TECHNICAL SPECIFICATIONS */
+        .specs {
+            background-color: var(--light-grey);
+        }
+
+        .specs-table-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 60px;
+            position: relative;
+        }
+
+        .specs-table-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--tech-cyan));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .specs-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            padding: 24px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .specs-row:last-child {
+            border-bottom: none;
+        }
+
+        .specs-label {
+            font-weight: 700;
+            color: var(--dark-blue);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .specs-label i {
+            margin-right: 10px;
+            color: var(--primary-blue);
+        }
+
+        .specs-value {
+            color: #475569;
+            font-size: 18px;
+        }
+
+        .specs-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* CTA SECTION */
+        .cta {
+            background: var(--gradient-overlay), url('../imagenes/https://a.lovart.ai/artifacts/agent/6iuaHJNoo8TVcuoQ.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 140px 0;
+        }
+
+        .cta h2 {
+            font-size: 56px;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 48px;
+        }
+
+        /* Footer Simple */
+        footer {
+            background: #020617;
+            color: #64748b;
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">TECNOLOGÍA INDUSTRIAL AVANZADA</span>
+                <h1 class="hero-title">Laminación PET de<br>Alta Resistencia</h1>
+                <p class="hero-subtitle">Soluciones de ingeniería de materiales para aplicaciones que exigen la máxima integridad estructural y durabilidad a largo plazo.</p>
+                <a href="#" class="btn btn-primary">Solicitar Cotización</a>
+                <a href="#" class="btn btn-outline" style="margin-left: 20px;">Ver Especificaciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY SECTION -->
+    <section class="section-padding technology">
+        <div class="container">
+            <div class="tech-grid">
+                <div class="tech-info">
+                    <span style="color: var(--primary-blue); font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Proceso de Ingeniería</span>
+                    <h2>Tecnología de Laminación PET</h2>
+                    <p>
+                        Nuestro proceso de laminación PET (Polietileno Tereftalato) utiliza tecnología de coextrusión multicapa de última generación. Fusionamos películas de PET de alta densidad con adhesivos especializados bajo condiciones controladas de temperatura y presión, creando un material compuesto que supera los estándares convencionales de resistencia.
+                    </p>
+                    <div class="tech-specs-list">
+                        <div class="tech-spec-item"><i class="ri-shield-check-line"></i> Protección UV Superior</div>
+                        <div class="tech-spec-item"><i class="ri-drop-line"></i> Barrera contra Humedad</div>
+                        <div class="tech-spec-item"><i class="ri-stack-line"></i> Adhesión Molecular</div>
+                        <div class="tech-spec-item"><i class="ri-recycle-line"></i> 100% Reciclable</div>
+                    </div>
+                </div>
+                <div class="tech-visual">
+                    <!-- Visual representation of layers -->
+                    <div class="tech-layer text-center" style="opacity:0.6; transform: scale(0.95);">Capa Externa de Protección</div>
+                    <div class="tech-layer text-center" style="opacity:0.8; transform: scale(0.98);">Adhesivo de Alto Rendimiento</div>
+                    <div class="tech-layer tech-layer-pet text-center">Núcleo PET de Alta Resistencia</div>
+                    <div class="tech-layer text-center" style="opacity:0.8; transform: scale(0.98);">Adhesivo de Sellado</div>
+                    <div class="tech-layer text-center" style="opacity:0.6; transform: scale(0.95);">Capa Barrera Interna</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="section-padding benefits">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Beneficios de la Laminación PET</h2>
+                <div class="line"></div>
+                <p style="margin-top: 20px; color: #64748b; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Diseñado para superar las expectativas en rendimiento y estética, nuestro laminado PET ofrece ventajas críticas para la industria moderna.
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ri-hammer-line"></i>
+                    </div>
+                    <h3>Alta Resistencia Mecánica</h3>
+                    <p>Soporta tensiones extremas y deformaciones sin perder integridad, ideal para cargas pesadas y manipulación ruda.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ri-time-line"></i>
+                    </div>
+                    <h3>Durabilidad Extrema</h3>
+                    <p>Vida útil prolongada con resistencia excepcional al desgaste, la abrasión y la fatiga del material.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ri-eye-line"></i>
+                    </div>
+                    <h3>Transparencia Cristalina</h3>
+                    <p>Claridad óptica superior que permite la inspección del producto sin comprometer la protección.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="ri-shield-star-line"></i>
+                    </div>
+                    <h3>Protección contra Impactos</h3>
+                    <p>Absorción de energía superior que protege el contenido contra golpes, caídas y perforaciones accidentales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATIONS SECTION -->
+    <section class="section-padding applications">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Aplicaciones Versátiles</h2>
+                <div class="line" style="background: rgba(255,255,255,0.3);"></div>
+            </div>
+            <div class="app-grid">
+                <!-- App 1 -->
+                <div class="app-card">
+                    <div class="app-image app-img-industrial"></div>
+                    <div class="app-content">
+                        <h3>Productos Industriales</h3>
+                        <p>Empaque robusto para componentes de maquinaria, herramientas y piezas automotrices que requieren protección contra grasa y abrasión.</p>
+                    </div>
+                </div>
+                <!-- App 2 -->
+                <div class="app-card">
+                    <div class="app-image app-img-electronic"></div>
+                    <div class="app-content">
+                        <h3>Productos Electrónicos</h3>
+                        <p>Barrera antiestática y protección física para circuitos sensibles, pantallas y dispositivos de consumo de alto valor.</p>
+                    </div>
+                </div>
+                <!-- App 3 -->
+                <div class="app-card">
+                    <div class="app-image app-img-pharma"></div>
+                    <div class="app-content">
+                        <h3>Sector Farmacéutico</h3>
+                        <p>Cumplimiento con normas de higiene, barrera contra contaminantes y preservación de la integridad química de medicamentos.</p>
+                    </div>
+                </div>
+                <!-- App 4 -->
+                <div class="app-card">
+                    <div class="app-image app-img-luxury"></div>
+                    <div class="app-content">
+                        <h3>Productos de Alta Gama</h3>
+                        <p>Acabado premium con brillo superior para cosméticos y artículos de lujo donde la presentación es tan vital como la protección.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNICAL SPECIFICATIONS -->
+    <section class="section-padding specs">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Especificaciones Técnicas</h2>
+                <div class="line"></div>
+            </div>
+            
+            <div class="specs-table-container">
+                <div class="specs-row">
+                    <div class="specs-label"><i class="ri-file-list-3-line"></i> Propiedades del Material</div>
+                    <div class="specs-value">
+                        Polietileno Tereftalato (PET) de grado ingeniería, coextruido con adhesivos de poliuretano. Alta resistencia a la tracción y estabilidad térmica.
+                    </div>
+                </div>
+                <div class="specs-row">
+                    <div class="specs-label"><i class="ri-ruler-line"></i> Opciones de Espesor</div>
+                    <div class="specs-value">
+                        <span class="specs-badge">12 micras</span>
+                        <span class="specs-badge">23 micras</span>
+                        <span class="specs-badge">36 micras</span>
+                        <span class="specs-badge">50 micras</span>
+                        <span class="specs-badge">75 micras</span>
+                        <span class="specs-badge">Personalizado hasta 150µm</span>
+                    </div>
+                </div>
+                <div class="specs-row">
+                    <div class="specs-label"><i class="ri-dashboard-line"></i> Características de Rendimiento</div>
+                    <div class="specs-value">
+                        Resistencia a la temperatura: -40°C a +150°C<br>
+                        Transmisión de vapor de agua: < 2.0 g/m²/24h<br>
+                        Resistencia al rasgado: > 1800 mN<br>
+                        Claridad óptica: > 92%
+                    </div>
+                </div>
+                <div class="specs-row">
+                    <div class="specs-label"><i class="ri-settings-4-line"></i> Certificaciones</div>
+                    <div class="specs-value">
+                        ISO 9001:2015, FDA Compliant (21 CFR 177.1630), Reciclable Code 1 (PET)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Necesitas máxima resistencia para tu producto?</h2>
+            <p>Descubre cómo nuestra tecnología de laminación PET puede transformar la seguridad y presentación de tus productos.</p>
+            <a href="#" class="btn btn-primary">Contáctanos Hoy</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 BPack. Todos los derechos reservados. Soluciones de Empaque de Alta Tecnología.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPack - Catálogo de Productos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Font Imports */
+        @font-face {
+            font-family: 'MiSans-Bold';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Bold.ttf');
+        }
+        @font-face {
+            font-family: 'NotoSansHans-Regular';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/NotoSansHans-Regular.otf');
+        }
+        @font-face {
+            font-family: 'MiSans-Medium';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf');
+        }
+
+        /* Base Styles */
+        :root {
+            --primary-color: #0F2C59;
+            --accent-color: #38b6ff;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'NotoSansHans-Regular', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            width: 1920px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background-image: url('../imagenes/https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 44, 89, 0.9) 0%, rgba(15, 44, 89, 0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+        }
+
+        .hero h1 {
+            font-family: 'MiSans-Bold';
+            font-size: 72px;
+            margin: 0 0 24px 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 28px;
+            font-family: 'MiSans-Medium';
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 30px 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .filter-container {
+            width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-family: 'MiSans-Bold';
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 20px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 1px solid #e0e0e0;
+            border-radius: 30px;
+            background: transparent;
+            font-family: 'MiSans-Medium';
+            font-size: 16px;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: rgba(15, 44, 89, 0.05);
+        }
+
+        /* Products Grid */
+        .products-section {
+            width: 1600px;
+            margin: 80px auto;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .section-title {
+            font-family: 'MiSans-Bold';
+            font-size: 42px;
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 320px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 35px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-family: 'MiSans-Bold';
+            font-size: 28px;
+            color: var(--primary-color);
+            margin: 0 0 15px 0;
+        }
+
+        .card-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-gray);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .features-list {
+            margin-bottom: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+
+        .applications-tag {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .app-badge {
+            background: #f0f7ff;
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            background: var(--primary-color);
+            color: var(--white);
+            font-family: 'MiSans-Bold';
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-btn:hover {
+            background: var(--accent-color);
+        }
+
+        .card-btn i {
+            margin-left: 8px;
+        }
+
+        /* Specifications Section */
+        .specs-wrapper {
+            background-color: var(--white);
+            padding: 100px 0;
+            margin-top: 80px;
+        }
+
+        .specs-grid {
+            width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .spec-card {
+            background: #f8fbfe;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid #eef6fc;
+        }
+
+        .spec-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--accent-color);
+            box-shadow: 0 8px 20px rgba(56, 182, 255, 0.15);
+            margin-bottom: 24px;
+        }
+
+        .spec-title {
+            font-family: 'MiSans-Bold';
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .spec-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        .spec-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-color);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: radial-gradient(#fff 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'MiSans-Bold';
+            font-size: 48px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 18px 48px;
+            font-size: 20px;
+            font-family: 'MiSans-Bold';
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer minimal styling for layout completeness */
+        .footer-strip {
+            background: #0a1f40;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Catálogo Completo de Productos</h1>
+            <p>Explora nuestra amplia gama de soluciones de empaque flexible</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <div class="filter-container">
+            <div class="filter-label">
+                <i class="ri-equalizer-line"></i>
+                FILTRAR POR:
+            </div>
+            <div class="filter-options">
+                <button class="filter-btn active">Todos</button>
+                <button class="filter-btn">Industria <i class="ri-arrow-down-s-line"></i></button>
+                <button class="filter-btn">Tipo de Material <i class="ri-arrow-down-s-line"></i></button>
+                <button class="filter-btn">Tamaño <i class="ri-arrow-down-s-line"></i></button>
+                <button class="filter-btn">Características <i class="ri-arrow-down-s-line"></i></button>
+            </div>
+            <div style="flex-grow: 1;"></div>
+            <button class="filter-btn" style="border: none; color: var(--primary-color);">
+                <i class="ri-download-line"></i> Descargar Catálogo PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="products-section">
+        <div class="section-header">
+            <h2 class="section-title">Nuestras Categorías</h2>
+            <div class="section-subtitle">Soluciones innovadoras para cada necesidad de envasado</div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- Product 1 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Stand-Up Pouches" style="object-position: center;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Stand-Up Pouches</h3>
+                    <p class="card-desc">Bolsas con fondo que se mantienen verticales, ideales para exhibición en estantería y máxima visibilidad de marca.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Excelente estabilidad vertical</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Opciones de ventana transparente</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Alimentos</span>
+                        <span class="app-badge">Pet Food</span>
+                        <span class="app-badge">Snacks</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Flat Pouches" style="object-position: top left;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Flat Pouches</h3>
+                    <p class="card-desc">Bolsas planas eficientes y económicas (3 sellos o sello central), perfectas para muestras o productos de un solo uso.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Sellado hermético de alta barrera</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Optimización de espacio</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Café</span>
+                        <span class="app-badge">Especias</span>
+                        <span class="app-badge">Muestras</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Zipper Bags" style="object-position: bottom right;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Zipper Bags</h3>
+                    <p class="card-desc">Soluciones resellables que garantizan la frescura del producto tras la apertura inicial, mejorando la experiencia del usuario.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Cierres Press-to-close o Slider</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Reutilizable y conveniente</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Frutos Secos</span>
+                        <span class="app-badge">Confitería</span>
+                        <span class="app-badge">Hogar</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Spout Pouches" style="object-position: top right;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Spout Pouches</h3>
+                    <p class="card-desc">Bolsas con boquilla vertedora, la alternativa moderna a botellas rígidas para líquidos y productos viscosos.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Reducción de plástico vs rígidos</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Fácil dosificación y transporte</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Bebidas</span>
+                        <span class="app-badge">Salsas</span>
+                        <span class="app-badge">Cuidado Personal</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+
+            <!-- Product 5 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Roll Stock" style="object-position: center bottom;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Roll Stock</h3>
+                    <p class="card-desc">Películas laminadas en bobina para máquinas de envasado automático (VFFS/HFFS), optimizadas para alta velocidad.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Alto rendimiento en maquinaria</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Impresión de alta definición</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Industrial</span>
+                        <span class="app-badge">Snacks</span>
+                        <span class="app-badge">Farmacéutica</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+
+            <!-- Product 6 -->
+            <article class="product-card">
+                <div class="card-image">
+                    <img src="https://a.lovart.ai/artifacts/agent/kXN9J77STzgHAwpn.jpg" alt="Custom Solutions" style="object-position: bottom left;">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Custom Solutions</h3>
+                    <p class="card-desc">Desarrollo de estructuras y formas a medida para necesidades específicas de barrera, estética o funcionalidad.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item"><i class="ri-check-line"></i> Ingeniería de materiales</div>
+                        <div class="feature-item"><i class="ri-check-line"></i> Prototipado y diseño único</div>
+                    </div>
+                    
+                    <div class="applications-tag">
+                        <span class="app-badge">Innovación</span>
+                        <span class="app-badge">Ediciones Limitadas</span>
+                    </div>
+                    
+                    <a href="#" class="card-btn">Ver Más <i class="ri-arrow-right-line"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section class="specs-wrapper">
+        <div class="section-header" style="text-align: center; margin-bottom: 60px;">
+            <h2 class="section-title">Especificaciones Técnicas</h2>
+            <div class="section-subtitle">Calidad y versatilidad en cada detalle</div>
+        </div>
+        
+        <div class="specs-grid">
+            <div class="spec-card">
+                <div class="spec-icon"><i class="ri-stack-line"></i></div>
+                <h3 class="spec-title">Materiales</h3>
+                <ul class="spec-list">
+                    <li>PET, PE, OPP, NY, AL</li>
+                    <li>Estructuras reciclables</li>
+                    <li>Biodegradables disponibles</li>
+                    <li>Laminaciones sin solventes</li>
+                </ul>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon"><i class="ri-ruler-2-line"></i></div>
+                <h3 class="spec-title">Tamaños</h3>
+                <ul class="spec-list">
+                    <li>Desde 50g hasta 5kg</li>
+                    <li>Anchos de 50mm a 400mm</li>
+                    <li>Fuelles personalizables</li>
+                    <li>Formatos mini y bulk</li>
+                </ul>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon"><i class="ri-printer-line"></i></div>
+                <h3 class="spec-title">Impresión</h3>
+                <ul class="spec-list">
+                    <li>Rotograbado hasta 10 colores</li>
+                    <li>Flexografía HD</li>
+                    <li>Impresión Digital</li>
+                    <li>Acabados Mate / Brillo</li>
+                </ul>
+            </div>
+            
+            <div class="spec-card">
+                <div class="spec-icon"><i class="ri-shield-star-line"></i></div>
+                <h3 class="spec-title">Barreras</h3>
+                <ul class="spec-list">
+                    <li>Protección UV</li>
+                    <li>Barrera al oxígeno (OTR)</li>
+                    <li>Barrera a la humedad (WVTR)</li>
+                    <li>Resistencia a la punción</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg-pattern"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">¿No encuentras lo que buscas?</h2>
+            <p style="font-size: 20px; color: rgba(255,255,255,0.9); margin-bottom: 20px;">
+                Nuestro equipo de expertos puede desarrollar la solución perfecta para tu producto.
+            </p>
+            <a href="#" class="cta-btn">Contáctanos <i class="ri-mail-send-line" style="margin-left: 10px; vertical-align: middle;"></i></a>
+        </div>
+    </section>
+
+    <div class="footer-strip">
+        © 2023 BPack Packaging Solutions. Todos los derechos reservados.
+    </div>
+
+</body>
+</html>

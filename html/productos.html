@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos y Procesos | BPack S.A. de C.V.</title>
+    <meta name="description"
+        content="Catálogo maestro de productos BPack. Conozca nuestros procesos de fabricación, desde diseño hasta empaque final, con especificaciones técnicas de vanguardia.">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        :root {
+            --glass: rgba(255, 255, 255, 0.8);
+            --process-bg: #f8fafc;
+        }
+
+        .mega-post {
+            padding-top: 100px;
+        }
+
+        /* Process Journey */
+        .process-journey {
+            background: var(--process-bg);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .process-grid::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: var(--border);
+            z-index: 1;
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .process-step h4 {
+            font-size: 16px;
+            color: var(--primary);
+        }
+
+        /* Product Cards Mega */
+        .product-catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .mega-card {
+            background: var(--white);
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mega-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mega-card-img {
+            height: 300px;
+            background: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mega-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .mega-card-content {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .mega-card-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(10, 37, 64, 0.05);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .mega-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .mega-card p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .tech-table {
+            width: 100%;
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .tech-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+
+        .tech-label {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel-item {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+        }
+
+        /* Deep Dive Immersive Section */
+        .deep-dive-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 20000;
+            display: none;
+            overflow-y: auto;
+            padding: 100px 0;
+            animation: slideUp 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+
+        .deep-dive-view.active {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .dd-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .dd-sticky {
+            position: sticky;
+            top: 100px;
+            background: #f8fafc;
+            border-radius: 50px;
+            padding: 80px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dd-sticky img {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.2));
+            transition: var(--transition);
+        }
+
+        .dd-close {
+            position: fixed;
+            top: 40px;
+            right: 50px;
+            width: 70px;
+            height: 70px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            cursor: pointer;
+            z-index: 20001;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .dd-close:hover {
+            transform: rotate(90deg) scale(1.1);
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .dd-section-title {
+            font-size: 64px;
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .dd-desc {
+            font-size: 22px;
+            color: var(--primary);
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .dd-card-feature {
+            background: #f1f5f9;
+            padding: 40px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dd-spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 16px;
+        }
+
+        .dd-spec-label {
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Dynamic Explorer Styles */
+        .product-explorer {
+            background: linear-gradient(rgba(10, 37, 64, 0.95), rgba(10, 37, 64, 0.95)), url('../imagenes/bpack_products_bg_premium.png');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 120px 0;
+            color: var(--white);
+        }
+
+        .horizontal-scroller {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 60px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary) rgba(255, 255, 255, 0.1);
+            scroll-behavior: smooth;
+        }
+
+        .horizontal-scroller::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .horizontal-scroller::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .horizontal-scroller::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        .dynamic-card {
+            flex: 0 0 450px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dynamic-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-20px);
+            border-color: var(--secondary);
+        }
+
+        .dynamic-card-img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        }
+
+        .overlay-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 19999;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.4s;
+        }
+
+        .overlay-bg.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .benefit-icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header" class="scrolled">
+        <div class="container header-inner">
+            <a href="../index.html#home" class="logo">
+                <img src="../imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html#home">Inicio</a>
+                <a href="productos.html" class="active">Productos</a>
+                <a href="../index.html#tecnologia">Tecnología</a>
+                <a href="../index.html#catalogo">Catálogo</a>
+                <a href="../index.html#nosotros">Nosotros</a>
+                <a href="../index.html#contacto">Contacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="../index.html#contacto" class="btn btn-primary" style="padding: 12px 28px;">Cotizar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="mega-post">
+        <!-- Hero Section -->
+        <section style="background: var(--primary); color: var(--white); padding: 120px 0; text-align: center;">
+            <div class="container">
+                <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--secondary);">Desde la
+                    Idea hasta el Anaquel</span>
+                <h1 style="font-size: clamp(40px, 6vw, 72px); color: var(--white); margin-bottom: 20px;">Catálogo
+                    Maestro de Productos</h1>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 20px; opacity: 0.8;">Cualquier reto de empaque lo
+                    hacemos realidad con tecnología de vanguardia y procesos certificados.</p>
+            </div>
+        </section>
+
+        <!-- Process Journey -->
+        <section class="process-journey">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="section-tag">Infografía de Proceso</span>
+                    <h2 class="section-title">¿Cómo Fabricamos su Éxito?</h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-brush-line"></i></div>
+                        <h4>1. Diseño y Estrategia</h4>
+                        <p style="font-size: 11px; margin-top: 10px;">Análisis de barrera y diseño gráfico HD.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-ruler-2-line"></i></div>
+                        <h4>2. Extrusión</h4>
+                        <p style="font-size: 11px; margin-top: 10px;">Generación de películas base certificadas.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-printer-line"></i></div>
+                        <h4>3. Impresión</h4>
+                        <p style="font-size: 11px; margin-top: 10px;">Hasta 9 colores con fidelidad perfecta.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-leaf-line"></i></div>
+                        <h4>4. Laminación Solventless</h4>
+                        <p style="font-size: 11px; margin-top: 10px; line-height: 1.3;">Proceso ecológico sin emisión de
+                            solventes. Garantiza empaques libres de olores.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-scissors-cut-line"></i></div>
+                        <h4>5. Refilado</h4>
+                        <p style="font-size: 11px; margin-top: 10px;">Bobinas precisas para su máquina.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-icon"><i class="ri-shopping-bag-line"></i></div>
+                        <h4>6. Bolseo / Conversión</h4>
+                        <p style="font-size: 11px; margin-top: 10px;">Fabricación de Pouches pre-formados.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Explorer Section -->
+        <section class="product-explorer">
+            <div class="container">
+                <div style="margin-bottom: 60px;">
+                    <span class="section-tag" style="color: var(--secondary);">Laminaciones de Alta Ingeniería</span>
+                    <h2 class="section-title" style="color: var(--white);">Explorador Maestro BPack</h2>
+                    <p style="opacity: 0.7;">Utilice el scroll para navegar por nuestra gama de estructuras y haga clic
+                        en cualquiera para ver sus especificaciones técnicas.</p>
+                </div>
+
+                <div class="horizontal-scroller">
+                    <!-- Product Card 1 -->
+                    <div class="dynamic-card" onclick="openDeepDive('bopp-bopp')">
+                        <img src="../Productos-img/1-BOPP-BOPP.jpg" alt="BOPP" class="dynamic-card-img">
+                        <span class="mega-card-tag"
+                            style="background: var(--secondary); color: var(--primary);">Popular</span>
+                        <h3>BOPP / BOPP</h3>
+                        <p>Protección y brillo para snacks y dulces.</p>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="dynamic-card" onclick="openDeepDive('bopp-met')">
+                        <img src="../Productos-img/2-bopp-boppmetal.jpg" alt="BOPP MET" class="dynamic-card-img">
+                        <span class="mega-card-tag" style="background: var(--secondary); color: var(--primary);">Alta
+                            Barrera</span>
+                        <h3>BOPP / MET BOPP</h3>
+                        <p>Protección total contra luz y oxígeno.</p>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="dynamic-card" onclick="openDeepDive('pet-pebd')">
+                        <img src="../Productos-img/PET-PEBD.jpg" alt="PET PE" class="dynamic-card-img">
+                        <span class="mega-card-tag"
+                            style="background: var(--secondary); color: var(--primary);">Resistente</span>
+                        <h3>PET / PEBD</h3>
+                        <p>Estructura rígida para polvos y granos.</p>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="dynamic-card" onclick="openDeepDive('pet-polifoil')">
+                        <img src="../Productos-img/PET-POLIFOIL_HD.png" alt="POLIFOIL" class="dynamic-card-img"
+                            style="object-fit: cover; border-radius: 30px;">
+                        <span class="mega-card-tag"
+                            style="background: var(--secondary); color: var(--primary);">Premium</span>
+                        <h3>PET / POLIFOIL</h3>
+                        <p>Barrera absoluta con foil de aluminio para protección total.</p>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="dynamic-card" onclick="openDeepDive('box-pouch-8')">
+                        <img src="../Productos-img/BOX_POUCH_HD.png" alt="Box Pouch" class="dynamic-card-img"
+                            style="object-fit: cover; border-radius: 30px;">
+                        <span class="mega-card-tag"
+                            style="background: var(--secondary); color: var(--primary);">Innovación</span>
+                        <h3>Box Pouch 8 Sellos</h3>
+                        <p>Máxima estabilidad y presencia en anaquel con fondo plano.</p>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="dynamic-card" onclick="openDeepDive('pet-met-pe')">
+                        <img src="../Productos-img/PET-MET-PE_HD.png" alt="Tri-Laminación" class="dynamic-card-img"
+                            style="object-fit: cover; border-radius: 30px;">
+                        <span class="mega-card-tag"
+                            style="background: var(--secondary); color: var(--primary);">Tri-Laminado</span>
+                        <h3>PET / MET / PE</h3>
+                        <p>Estructura de 3 capas para larga vida y protección metálica.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive View Container -->
+        <div id="deepDiveView" class="deep-dive-view">
+            <div class="dd-close" onclick="closeDeepDive()"><i class="ri-close-line"></i></div>
+            <div class="container" id="ddContent">
+                <!-- Content will be injected via JavaScript -->
+            </div>
+        </div>
+
+        <section style="padding: 100px 0; background: var(--white);">
+            <div class="container" style="text-align: center;">
+                <span class="section-tag">Presencia en Anaquel</span>
+                <h2 class="section-title">Confianza en Cada Producto</h2>
+                <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 60px;">
+                    <div style="text-align: center; cursor: pointer;" onclick="openDeepDive('tuny-case')">
+                        <img src="../Productos-img/PET-POLIFOIL_HD.png" alt="Tuny"
+                            style="height: 220px; border-radius: 30px; box-shadow: var(--shadow-sm); margin-bottom: 25px; transition: var(--transition); object-fit: cover; width: 220px;"
+                            class="hover-scale">
+                        <p style="font-weight: 700; font-size: 18px;">Caso: Alimentos Líderes</p>
+                        <span
+                            style="color: var(--secondary); font-size: 14px; font-weight: 700; text-transform: uppercase;">Explorar
+                            Solución -></span>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;" onclick="openDeepDive('yoom-case')">
+                        <img src="../Productos-img/Yoom_HD.png" alt="Yoom"
+                            style="height: 220px; border-radius: 30px; box-shadow: var(--shadow-sm); margin-bottom: 25px; transition: var(--transition); object-fit: cover; width: 220px;"
+                            class="hover-scale">
+                        <p style="font-weight: 700; font-size: 18px;">Caso: Gourmet & Snacks</p>
+                        <span
+                            style="color: var(--secondary); font-size: 14px; font-weight: 700; text-transform: uppercase;">Explorar
+                            Solución -></span>
+                    </div>
+                    <div style="text-align: center; cursor: pointer;" onclick="openDeepDive('box-pouch-8')">
+                        <img src="../Productos-img/BOX_POUCH_HD.png" alt="Pet Food"
+                            style="height: 220px; border-radius: 30px; box-shadow: var(--shadow-sm); margin-bottom: 25px; transition: var(--transition); object-fit: cover; width: 220px;"
+                            class="hover-scale">
+                        <p style="font-weight: 700; font-size: 18px;">Caso: Línea Industrial</p>
+                        <span
+                            style="color: var(--secondary); font-size: 14px; font-weight: 700; text-transform: uppercase;">Explorar
+                            Solución -></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #06111D; padding: 100px 0 40px; color: rgba(255, 255, 255, 0.6);">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html#home" class="logo" style="margin-bottom: 24px;">
+                        <img src="../imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img"
+                            style="filter: brightness(0) invert(1);">
+                    </a>
+                    <p>Expertos en soluciones de empaque flexible que garantizan la integridad de tus productos.</p>
+                </div>
+            </div>
+            <div class="copyright"
+                style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+                &copy; 2026 BPack S.A. de C.V. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/525512345678" target="_blank"
+        style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 9999; transition: var(--transition);">
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <script>
+        const productDetails = {
+            'bopp-bopp': {
+                title: 'BOPP / BOPP',
+                tag: 'Biorientado Térmico',
+                desc: 'La laminación más equilibrada del mercado. Utilizada mundialmente para snacks, galletas y dulces. Ofrece una claridad superior que permite lucir el producto interno mientras garantiza una barrera contra la humedad y el polvo.',
+                img: '../Productos-img/1-BOPP-BOPP.jpg',
+                processImg: '../imagenes/bpack_extrusion_process_hd.png',
+                specs: {
+                    'Espesores': '30, 35, 40 micras',
+                    'Transmisión Vapor': 'Extremadamente Baja',
+                    'Fricción (COF)': '0.20 (Ideal Alta Velocidad)',
+                    'Uso Principal': 'Snacks, Dulces, Panificación'
+                },
+                process: 'Se inicia con la co-extrusión de polipropileno biorientado. Luego se aplica una capa de adhesivo solvent-less para unir dos películas BOPP, creando una estructura de alta rigidez y transparencia.',
+                machinery: 'Envasadoras VFFS / HFFS automáticas de alta frecuencia (Línea BMATIK compatible).',
+                benefits: ['Claridad espejo', 'Costo eficiente', 'Alta velocidad de sellado']
+            },
+            'bopp-met': {
+                title: 'BOPP / MET BOPP',
+                tag: 'Alta Barrera Lumínica',
+                desc: 'Esencial para productos que contienen grasas o aceites que se oxidan con la luz. La capa de aluminio metalizado por vapor actúa como un escudo térmico y lumínico insuperable.',
+                img: '../Productos-img/2-bopp-boppmetal.jpg',
+                processImg: '../imagenes/bpack_machinery_printing_detail.png',
+                specs: {
+                    'Barrera Luz': '99.9% Bloqueo UV',
+                    'Densidad Óptica': '2.2 OD min',
+                    'Adhesión': 'Superior a 1.5 N/15mm',
+                    'Carga Estática': 'Neutralizada'
+                },
+                process: 'Integración de una película metalizada internamente. El proceso de laminación se realiza a tensión controlada para evitar micro-fisuras en la capa de metalización.',
+                machinery: 'Maquinaria de envasado con sensores de marca para registro metalizado.',
+                benefits: ['Protección contra oxidación', 'Impacto visual premium', 'Barrera de oxígeno']
+            },
+            'pet-pebd': {
+                title: 'PET / PEBD',
+                tag: 'Estructura Industrial',
+                desc: 'La laminación de mayor resistencia mecánica. El PET provee la rigidez y el brillo exterior, mientras que el PEBD garantiza un sellado hermético a prueba de fugas para polvos finos y granos saturados.',
+                img: '../Productos-img/PET-PEBD.jpg',
+                processImg: '../imagenes/bpack_plant_mexican_workers.png',
+                specs: {
+                    'Resistencia': 'Alta Punción (Anti-puncure)',
+                    'Rango Sellado': '140°C - 190°C',
+                    'Tratamiento': 'Corona en ambas caras',
+                    'Grado': 'FDA Alimenticio'
+                },
+                process: 'Unión de Poliéster (PET) con Polietileno de Baja Densidad (PEBD) mediante laminación en seco. Ideal para empaques que requieren mantener una forma vertical perfecta (Stand-up).',
+                machinery: 'Equipos de conversión de bolsas stand-up pouch y máquinas de llenado vertical.',
+                benefits: ['Soporta alto peso', 'Hermeticidad total', 'Acabado espejo']
+            },
+            'pet-polifoil': {
+                title: 'PET / POLIFOIL (ALU)',
+                tag: 'Barrera Absoluta',
+                desc: 'La estructura más robusta para productos sensibles. Utiliza una capa de foil de aluminio real que bloquea el 100% de la luz, el oxígeno y la humedad. Ideal para café, farmacéuticos y químicos.',
+                img: '../Productos-img/PET-POLIFOIL_HD.png',
+                processImg: '../imagenes/bpack_solventless_laminator_hd.png',
+                specs: {
+                    'Barrera': 'Aluminio 100% Opaco',
+                    'Sellado': 'Hermeticidad Grado Químico',
+                    'Gramaje': 'Alto Desempeño',
+                    'Uso': 'Café, Polvos, Agroquímicos'
+                },
+                process: 'Tri-laminación compleja uniendo PET exterior, Foil de Aluminio central y PE de sellado interno. Se requiere precisión extrema en la tensión para evitar porosidad en el aluminio.',
+                machinery: 'Envasadoras al vacío o con atmósfera modificada (Nitrógeno).',
+                benefits: ['Vida de anaquel extendida', 'Protección contra olores', 'Rigidez estructural']
+            },
+            'pet-met-pe': {
+                title: 'PET / MET / PE',
+                tag: 'Protección Tri-Capa',
+                desc: 'Una solución de alta gama que combina la rigidez del PET, la barrera metálica y la flexibilidad del polietileno. Un estándar en la industria de alimentos gourmet.',
+                img: '../Productos-img/PET-MET-PE_HD.png',
+                processImg: '../imagenes/bpack_slitting_precision_hd.png',
+                specs: {
+                    'Estructura': 'PET 12 / MET 12 / PE',
+                    'Apariencia': 'Plateado Metálico Interno',
+                    'Resistencia': 'Excelente al Rasgado',
+                    'COF': 'Controlado para Arrastre'
+                },
+                process: 'Proceso de tri-laminación en dos pasos. Primero se une el PET con el film metalizado y posteriormente se lamina hacia la capa de polietileno de baja densidad.',
+                machinery: 'Máquinas de alta velocidad (HFFS) y envasadoras de sobres (Sachets).',
+                benefits: ['Brillo metálico', 'Barrera de oxígeno media-alta', 'Excelente sellabilidad']
+            },
+            'box-pouch-8': {
+                title: 'Box Pouch 8 Sellos',
+                tag: 'Innovación BPack',
+                desc: 'El empaque del futuro. Reemplaza cajas rígidas con una bolsa de fondo plano que tiene 5 caras de impresión. Es la solución líder para marcas que buscan dominar el anaquel con elegancia y eficiencia logística.',
+                img: '../Productos-img/BOX_POUCH_HD.png',
+                processImg: '../imagenes/bpack_pouch_maker_hd.png',
+                specs: {
+                    'Caras Impresión': '5 Lados Totales',
+                    'Estabilidad': 'Fondo Plano Auto-soportado',
+                    'Válvula': 'Compatible con desgasificación',
+                    'Zipper': 'Slider / Frontal Resellable'
+                },
+                process: 'Proceso de confección multi-etapa donde se insertan fuelles laterales y fondo independiente. Se sellan 8 puntos críticos para garantizar la estabilidad geométrica de la bolsa una vez llena.',
+                machinery: 'Líneas de conversión High-Tech de 8 estaciones digitales.',
+                benefits: ['30% ahorro en transporte', 'Atracción visual 360°', 'Reducción de huella de carbono']
+            },
+            'yoom-case': {
+                title: 'Caso: Yoom Gourmet',
+                tag: 'Premium Snack Case',
+                desc: 'Desarrollamos un empaque disruptivo para la marca Yoom, utilizando una estructura mate con ventana transparente de alta definición para mostrar la frescura de sus frutos secos gourmet.',
+                img: '../Productos-img/Yoom_HD.png',
+                processImg: '../imagenes/bpack_laser_hd.png',
+                specs: {
+                    'Acabado': 'Soft-touch Barniz Mate',
+                    'Ventana': 'HD Clear-window',
+                    'Resellado': 'Zipper de Alta Presión',
+                    'Mercado': 'Exportación Gourmet'
+                },
+                process: 'Impresión en reverso sobre BOPP mate, laminado con PE de alta transparencia mediante proceso solvent-less para garantizar cero olores en el producto.',
+                machinery: 'Líneas de llenado para snacks con sistema de pesado multicabezal.',
+                benefits: ['Diferenciación táctil', 'Confianza al mostrar producto', 'Hermeticidad de frescura']
+            },
+            'tuny-case': {
+                title: 'Caso: Atún Tuny',
+                tag: 'Sustitución de Lata',
+                desc: 'Desarrollamos una estructura de 4 capas (PET / ALU / NY / PE) para permitir que el atún conserve su frescura sin conservadores. Este empaque es flexible, ligero y permite una cocción dentro de la bolsa.',
+                img: '../Productos-img/BOXPOUCHFONDOPLANOTUNY.jpg',
+                processImg: '../imagenes/bpack_machinery_printing_detail.png',
+                specs: {
+                    'Barrera': 'Absoluta (Cero Transmisión)',
+                    'Resistencia': 'Retortable (Autoclave)',
+                    'Impacto': 'Reducción 90% peso empaque',
+                    'Mercado': 'Consumo masivo retail'
+                },
+                process: 'Cuadri-laminación con capa de aluminio y nylon especializado para resistir procesos térmicos de esterilización post-llenado.',
+                machinery: 'Líneas de llenado aséptico y autoclaves industriales.',
+                benefits: ['Portabilidad extrema', 'No requiere abrelatas', 'Sostenibilidad logística']
+            }
+        };
+
+        function openDeepDive(id) {
+            const data = productDetails[id];
+            if (!data) return;
+
+            const content = `
+                <div class="dd-grid">
+                    <div class="dd-sticky">
+                        <img src="${data.img}" alt="${data.title}">
+                        <div style="margin-top: 50px; text-align: left;">
+                            <h4 style="margin-bottom: 20px;">Especificaciones Maestras</h4>
+                            ${Object.entries(data.specs).map(([label, val]) => `
+                                <div class="dd-spec-row">
+                                    <span class="dd-spec-label">${label}</span>
+                                    <span>${val}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <span class="dd-tag">${data.tag}</span>
+                        <h2 class="dd-section-title">${data.title}</h2>
+                        <p class="dd-desc">${data.desc}</p>
+                        
+                        <div class="dd-card-feature">
+                            <h3 style="margin-bottom: 20px; color: var(--primary);">El Proceso de Fabricación</h3>
+                            <p style="margin-bottom: 30px; opacity: 0.8; font-size: 18px;">${data.process}</p>
+                            <img src="${data.processImg}" style="width: 100%; border-radius: 30px; margin-bottom: 20px; box-shadow: var(--shadow-sm);">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 50px;">
+                            <div class="dd-card-feature" style="margin: 0;">
+                                <h4 style="margin-bottom: 10px;">Maquinaria Requerida</h4>
+                                <p style="font-size: 15px; opacity: 0.7;">${data.machinery}</p>
+                            </div>
+                            <div class="dd-card-feature" style="margin: 0;">
+                                <h4 style="margin-bottom: 15px;">Diferenciadores BPack</h4>
+                                <ul style="list-style: none; font-size: 14px; opacity: 0.8;">
+                                    ${data.benefits.map(b => `<li><i class="ri-check-line" style="color: var(--secondary);"></i> ${b}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--primary); color: var(--white); padding: 50px; border-radius: 40px; text-align: center;">
+                            <h3 style="margin-bottom: 20px;">¿Necesita esta solución para su marca?</h3>
+                            <p style="opacity: 0.7; margin-bottom: 30px;">Nuestros ingenieros le ayudarán a optimizar su empaque actual.</p>
+                            <a href="../index.html#contacto" class="btn btn-secondary" style="color: var(--primary); padding: 15px 40px; font-weight: 800;">Solicitar Asesoría Técnica</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('ddContent').innerHTML = content;
+            document.getElementById('deepDiveView').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDeepDive() {
+            document.getElementById('deepDiveView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Keep existing simple modal logic for other parts if needed
+        function openProduct(title, desc, img, ventaja, print, machine) {
+            // This function can now be repurposed or integrated into the deep dive logic
+            openDeepDive('bopp-bopp'); // Example fallback
+        }
+    </script>
+</body>
+
+</html>

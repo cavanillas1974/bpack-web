@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri-Laminaciones | BPack S.A. de C.V.</title>
+    <meta name="description"
+        content="Estructuras de 3 capas para protección extrema. Máxima seguridad para productos de alta sensibilidad.">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .tech-hero {
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(10, 37, 64, 0.8), rgba(10, 37, 64, 0.8)), url('../imagenes/Tri-Laminaciones - Protección Máxima.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .tech-content {
+            padding: 100px 0;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .spec-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .spec-table td {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-table td:first-child {
+            font-weight: 700;
+            color: var(--primary);
+            width: 40%;
+        }
+
+        .tech-image-large {
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: var(--shadow-lg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header" class="scrolled">
+        <div class="container header-inner">
+            <a href="../index.html#home" class="logo">
+                <img src="../imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="../index.html#home">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="../index.html#soluciones">Soluciones</a>
+                <a href="../index.html#tecnica">Tecnología</a>
+                <a href="../index.html#catalogo">Catálogo</a>
+                <a href="../index.html#nosotros">Nosotros</a>
+                <a href="../index.html#contacto">Contacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="../index.html#contacto" class="btn btn-primary" style="padding: 12px 28px;">Cotizar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="tech-hero">
+        <div class="container">
+            <span class="tagline" style="color: var(--secondary);">Alta Ingeniería</span>
+            <h1 style="color: var(--white); font-size: clamp(40px, 6vw, 72px);">Tri-Laminaciones</h1>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 20px; opacity: 0.9;">
+                Estructuras multiancla de tres capas diseñadas para una protección extrema contra factores ambientales
+                externos. Seguridad absoluta para su marca.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="tech-content">
+        <div class="container">
+            <div class="specs-grid">
+                <div>
+                    <span class="section-tag">Complejidad</span>
+                    <h2 class="section-title">El Poder de las Tres Capas</h2>
+                    <p class="section-desc">
+                        Combinamos sustratos técnicos para maximizar las propiedades de cada material. Nuestras
+                        tri-laminaciones aislan el contenido de forma hermética, siendo la solución estándar para
+                        productos farmacéuticos y químicos.
+                    </p>
+
+                    <div class="spec-card">
+                        <h3>Estructuras Típicas</h3>
+                        <table class="spec-table">
+                            <tr>
+                                <td>Opción A</td>
+                                <td>PET / ALU / PE</td>
+                            </tr>
+                            <tr>
+                                <td>Opción B</td>
+                                <td>BOPP / MET-BOPP / PE</td>
+                            </tr>
+                            <tr>
+                                <td>Barrera de Vapor</td>
+                                <td>
+                                    < 0.1 g/m²/24h</td>
+                            </tr>
+                            <tr>
+                                <td>Aplicación</td>
+                                <td>Grado Farmacéutico</td>
+                            </tr>
+                            <tr>
+                                <td>Estanqueidad</td>
+                                <td>Prueba de Helio Positiva</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <img src="../imagenes/Tri-Laminaciones - Protección Máxima.png" alt="Tri-Laminación Spectacular" class="tech-image-large">
+                </div>
+            </div>
+
+            <div style="margin-top: 100px;">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="section-tag">Máxima Seguridad</span>
+                    <h2 class="section-title">Soluciones de Blindaje Molecular</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="ri-lock-password-line"></i></div>
+                        <div>
+                            <h4>Inviolabilidad</h4>
+                            <p>Estructuras que garantizan que el producto llegue al cliente final sin ninguna
+                                alteración.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="ri-contrast-drop-2-line"></i></div>
+                        <div>
+                            <h4>Resistencia Química</h4>
+                            <p>Barreras inertes compatibles con solventes, grasas y aceites industriales.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="ri-timer-line"></i></div>
+                        <div>
+                            <h4>Longevidad</h4>
+                            <p>Permite una vida útil de anaquel que supera con creces los estándares del mercado.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="ri-microscope-line"></i></div>
+                        <div>
+                            <h4>Precisión Técnica</h4>
+                            <p>Control riguroso de micrajes por capa para un desempeño predecible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #06111D; padding: 60px 0 40px; color: rgba(255, 255, 255, 0.6);">
+        <div class="container">
+            <div
+                style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 40px; margin-bottom: 40px;">
+                <a href="../index.html#home" class="logo">
+                    <img src="../imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img"
+                        style="filter: brightness(0) invert(1);">
+                </a>
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="ri-linkedin-fill"></i></a>
+                    <a href="#" class="social-btn"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" class="social-btn"><i class="ri-instagram-line"></i></a>
+                </div>
+            </div>
+            <div class="copyright" style="text-align: center;">
+                &copy; 2026 BPack S.A. de C.V. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

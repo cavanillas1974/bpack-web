@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPack S.A. de C.V. | Empaque Flexible del Futuro</title>
+    <meta name="description"
+        content="Líderes en fabricación de empaques flexibles con más de 20 años de experiencia. Innovación, calidad y sostenibilidad en cada solución de empaque.">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Remix Icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Scroll Reveal for animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header id="header">
+        <div class="container header-inner">
+            <a href="#home" class="logo">
+                <img src="imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home" class="active">Inicio</a>
+                <a href="html/productos.html">Productos</a>
+                <a href="#tecnologia">Tecnología</a>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contacto" class="btn btn-primary" style="padding: 12px 28px;">Cotizar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <img src="imagenes/Hero Section - Empaque Flexible Hecho Fácil.png" alt="Hero Background">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="tagline">Innovación en Empaque 2026</span>
+                <h1>Empaque Flexible <br>Hecho Fácil</h1>
+                <p>Soluciones disruptivas que impulsan el crecimiento de tu marca con tecnología de vanguardia y
+                    procesos de manufactura eficientes.</p>
+                <div class="hero-btns">
+                    <a href="#soluciones" class="btn btn-primary">Descubre Soluciones <i
+                            class="ri-arrow-right-line"></i></a>
+                    <a href="#catalogo" class="btn btn-outline" style="margin-left: 15px;">Ver Catálogo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover / Solutions Section -->
+    <section id="soluciones">
+        <div class="container discover">
+            <div class="discover-image">
+                <img src="imagenes/Discover Solutions - Proceso de Diseño y Fabricación.png"
+                    alt="Proceso de Manufactura">
+            </div>
+            <div class="discover-content">
+                <span class="section-tag">Personalización Total</span>
+                <h2 class="section-title">Soluciones que se Adaptan a tu Negocio</h2>
+                <p class="section-desc">En BPack, transformamos tus ideas en realidades tangibles. Nuestro proceso
+                    integral abarca desde la selección de materiales hasta la impresión de alta definición.</p>
+
+                <div class="feature-grid">
+                    <div class="feature-box" onclick="openSolution('proteccion')" style="cursor: pointer;">
+                        <div class="feature-icon"><i class="ri-shield-check-line"></i></div>
+                        <div>
+                            <h4>Protección Total</h4>
+                            <p>Barreras de alta ingeniería para conservar la frescura.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box" onclick="openSolution('sostenibilidad')" style="cursor: pointer;">
+                        <div class="feature-icon"><i class="ri-leaf-line"></i></div>
+                        <div>
+                            <h4>Sostenibilidad</h4>
+                            <p>Opciones biocompostables y 100% reciclables.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box" onclick="openSolution('alta-velocidad')" style="cursor: pointer;">
+                        <div class="feature-icon"><i class="ri-rocket-line"></i></div>
+                        <div>
+                            <h4>Alta Velocidad</h4>
+                            <p>Optimización para sistemas de envasado automático.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box" onclick="openSolution('impresion-hd')" style="cursor: pointer;">
+                        <div class="feature-icon"><i class="ri-palette-line"></i></div>
+                        <div>
+                            <h4>Impresión HD</h4>
+                            <p>Calidad fotográfica que resalta tu marca en anaquel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <!-- Consolidated Product Explorer Section -->
+    <section id="catalogo" class="catalog-section"
+        style="padding: 120px 0; background: var(--white); overflow: hidden;">
+        <div class="container">
+            <div style="margin-bottom: 60px;">
+                <span class="section-tag" style="background: rgba(10, 37, 64, 0.05); color: var(--primary);">Portafolio
+                    BPack 2026</span>
+                <h2 class="section-title">Explorador Maestro de Empaque</h2>
+                <p class="section-desc">Diseños de alta ingeniería para cada industria. Deslice para explorar y haga
+                    clic para ver detalles técnicos.</p>
+            </div>
+
+            <div class="horizontal-scroller"
+                style="display: flex; gap: 30px; overflow-x: auto; padding: 40px 0; scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Card 1: Box Pouch -->
+                <div class="dynamic-card" onclick="openProduct('box-pouch')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
+                    class="hover-scale">
+                    <img src="Productos-img/BOX_POUCH_HD.png"
+                        style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+                    <span
+                        style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px;">Innovación</span>
+                    <h3 style="font-size: 22px; margin-top: 10px;">Box Pouch</h3>
+                    <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;">La evolución de la caja al empaque
+                        flexible de 8 sellos.</p>
+                </div>
+
+                <!-- Card 2: Doypack -->
+                <div class="dynamic-card" onclick="openProduct('doypack')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
+                    class="hover-scale">
+                    <img src="imagenes/bpack_doypack_hd.png"
+                        style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+                    <span
+                        style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px;">Versatilidad</span>
+                    <h3 style="font-size: 22px; margin-top: 10px;">Stand-Up Pouch</h3>
+                    <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;">Formato Doypack clásico con zipper y
+                        alta visibilidad.</p>
+                </div>
+
+                <!-- Card 3: Polifoil -->
+                <div class="dynamic-card" onclick="openProduct('polifoil')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
+                    class="hover-scale">
+                    <img src="Productos-img/PET-POLIFOIL_HD.png"
+                        style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+                    <span
+                        style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px;">Alta
+                        Barrera</span>
+                    <h3 style="font-size: 22px; margin-top: 10px;">PET / POLIFOIL</h3>
+                    <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;">Protección absoluta con foil de aluminio
+                        para café y polvos.</p>
+                </div>
+
+                <!-- Card 4: Bobinas -->
+                <div class="dynamic-card" onclick="openProduct('bobinas')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
+                    class="hover-scale">
+                    <img src="imagenes/bpack_laminated_roll_hd.png"
+                        style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+                    <span
+                        style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px;">Eficiencia</span>
+                    <h3 style="font-size: 22px; margin-top: 10px;">Bobinas Laminadas</h3>
+                    <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;">Películas de alto desempeño para
+                        envasado automático.</p>
+                </div>
+
+                <!-- Card 5: Retortable -->
+                <div class="dynamic-card" onclick="openProduct('retortable')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
+                    class="hover-scale">
+                    <img src="imagenes/bpack_retortable_hd.png"
+                        style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
+                    <span
+                        style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px;">Térmico</span>
+                    <h3 style="font-size: 22px; margin-top: 10px;">Empaque Retortable</h3>
+                    <p style="font-size: 14px; opacity: 0.7; margin-top: 10px;">Soporta procesos de autoclave y
+                        esterilización térmica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Tecnologia Section -->
+    <section id="tecnologia" style="padding: 100px 0; background: #f8fafc; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Infraestructura del Futuro</span>
+                <h2 class="section-title">Tecnología que Impulsa el Éxito</h2>
+                <p class="section-desc">Contamos con una de las plantas más modernas de América Latina, diseñada bajo
+                    estándares de industria 4.0 para garantizar precisión absoluta.</p>
+            </div>
+
+            <!-- Factory Panorama Visual -->
+            <div class="reveal-visible" style="margin-bottom: 80px; position: relative;">
+                <img src="imagenes/bpack_factory_panorama_hd.png" alt="Planta BPack Panorama"
+                    style="width: 100%; border-radius: 50px; box-shadow: var(--shadow-2xl); filter: brightness(0.9); display: block;">
+
+                <!-- Overlay Value Cards -->
+                <div
+                    style="display: flex; justify-content: center; gap: 30px; margin-top: -60px; position: relative; z-index: 10; padding: 0 20px;">
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
+                        class="hover-scale">
+                        <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">100%
+                        </h4>
+                        <p
+                            style="font-size: 13px; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            Automatización</p>
+                    </div>
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
+                        class="hover-scale">
+                        <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">FSSC
+                        </h4>
+                        <p
+                            style="font-size: 13px; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            Inocuidad Total</p>
+                    </div>
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
+                        class="hover-scale">
+                        <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">9Col
+                        </h4>
+                        <p
+                            style="font-size: 13px; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            Registro HD</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Innovation Ribbon (Fills the Gap) -->
+            <div style="margin-bottom: 80px;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                    <div style="position: relative; height: 380px; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('color-hd')">
+                        <img src="imagenes/bpack_detail_9col_hd.png"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(10, 37, 64, 0.9)); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; color: white;">
+                            <h4
+                                style="color: var(--secondary); margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">
+                                Precisión Maestro</h4>
+                            <h3 style="color: white; font-size: 24px;">Registro de Color HD</h3>
+                            <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Estabilidad cromática absoluta
+                                en tiros de gran escala.</p>
+                        </div>
+                    </div>
+                    <div style="position: relative; height: 380px; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('monitoreo-ia')">
+                        <img src="imagenes/bpack_engineer_control_hd.png"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(10, 37, 64, 0.9)); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; color: white;">
+                            <h4
+                                style="color: var(--secondary); margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">
+                                Industria 4.0</h4>
+                            <h3 style="color: white; font-size: 24px;">Monitoreo en Tiempo Real</h3>
+                            <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Control telemétrico paso a paso
+                                para trazabilidad total.</p>
+                        </div>
+                    </div>
+                    <div style="position: relative; height: 380px; border-radius: 40px; overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('polimeros-puros')">
+                        <img src="imagenes/bpack_premium_raw_hd.png"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <div
+                            style="position: absolute; inset: 0; background: linear-gradient(transparent, rgba(10, 37, 64, 0.9)); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; color: white;">
+                            <h4
+                                style="color: var(--secondary); margin-bottom: 10px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">
+                                Inocuidad Pura</h4>
+                            <h3 style="color: white; font-size: 24px;">Polímeros de Grado Quirúrgico</h3>
+                            <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">Materias primas vírgenes
+                                certificadas para grado alimentario.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machinery Explorer -->
+            <div id="maquinaria-explorer">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="section-tag">Infraestructura de Clase Mundial</span>
+                    <h2 class="section-title">Maquinaria de Vanguardia</h2>
+                    <p class="section-desc">Inversión constante en ingeniería europea para resultados de alta fidelidad.
+                    </p>
+                </div>
+
+                <div class="machine-grid" style="grid-template-columns: repeat(3, 1fr); gap: 40px;">
+                    <!-- Machine 1: Extrusion -->
+                    <div class="machine-card" onclick="openMachine('tower-7')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_extrusion_tower_hd_new.png" alt="Co-Extrusion Tower">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Extrusión</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Torre Multicapa 7 Nivel</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">El origen de la barrera. Creamos películas con
+                                hasta 7 capas de polímeros diferentes para una protección total.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Ver
+                                Proceso Químico -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 2: Flexo -->
+                    <div class="machine-card" onclick="openMachine('flexo-9')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_flexographic_printer_hd_new.png" alt="9 Colors Flexo">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Impresión</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Flexografía 9 Colores</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Fidelidad fotográfica en cada empaque. Registro
+                                digital y tintas de alta densidad para impacto visual premium.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Explorar
+                                Definición -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 3: Solventless -->
+                    <div class="machine-card" onclick="openMachine('solventless-lam')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_solventless_laminator_hd_new.png" alt="Solventless Laminator">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Laminación</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Laminación Solventless</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Seguridad alimentaria garantizada. Unión de
+                                películas sin químicos dañinos ni olores residuales.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Certificación
+                                de Inocuidad -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 4: Slitting -->
+                    <div class="machine-card" onclick="openMachine('slitter-pro')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_slitting_precision_hd_new.png" alt="Slitting Machine">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Refilado</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Refiladora de Alta Velocidad</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Corte de precisión micrométrica. Rollos perfectos
+                                para que su línea de envasado nunca se detenga.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Detalle
+                                de Corte -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 5: Pouch -->
+                    <div class="machine-card" onclick="openMachine('pouch-ekt')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_pouch_maker_hd_new.png" alt="Pouch Maker">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Conversión</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Stand-up Pouch EKT</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Formación automatizada de pouches con ziper y
+                                válvula. Innovación en formatos de anaquel.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Ver
+                                Ingeniería de Bolsa -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 6: Quality Lab -->
+                    <div class="machine-card" onclick="openMachine('quality-lab')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_quality_lab_hd_new.png" alt="Quality Control Lab">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Control de Calidad</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Laboratorio Digital BPack</h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Inspección científica 24/7. Pruebas de tensión,
+                                punción y barrera para cada lote.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Ver
+                                Protocolo de Calidad -></span>
+                        </div>
+                    </div>
+
+                    <!-- Machine 7: Laser Perforation -->
+                    <div class="machine-card" onclick="openMachine('laser-perf')">
+                        <div class="machine-card-img">
+                            <img src="imagenes/bpack_laser_hd_new.png" alt="Laser Perforation">
+                        </div>
+                        <div class="machine-card-content">
+                            <span class="machine-tag">Precisión</span>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Corte Láser de Micro-Ventilación
+                            </h3>
+                            <p style="font-size: 14px; opacity: 0.7;">Tecnología para empaques respirables.
+                                Micro-perforación controlada para frescura extendida en perecederos.</p>
+                            <span
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Explorar
+                                Ingeniería Láser -></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plant Scale Mini-Gallery -->
+                <div
+                    style="margin-top: 80px; padding: 60px; background: var(--white); border-radius: 50px; border: 1px solid var(--border);">
+                    <div style="text-align: center; margin-bottom: 50px;">
+                        <span class="section-tag">Escala Industrial</span>
+                        <h3 style="font-size: 36px; color: var(--primary);">Nuestra Capacidad en Números</h3>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+                        <div style="position: relative; border-radius: 30px; overflow: hidden; height: 280px; box-shadow: var(--shadow-sm); cursor: pointer;"
+                            class="hover-scale" onclick="openScale('conversion')">
+                            <img src="imagenes/bpack_conversion_lines_hd_new.png"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,37,64,0.9)); padding: 25px; color: white;">
+                                <span
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Producción
+                                    Automática</span>
+                                <div style="font-weight: 800; font-size: 16px; margin-top: 5px;">Líneas de Conversión
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: relative; border-radius: 30px; overflow: hidden; height: 280px; box-shadow: var(--shadow-sm); cursor: pointer;"
+                            class="hover-scale" onclick="openScale('logistics')">
+                            <img src="imagenes/bpack_auto_logistics_hd_new.png"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,37,64,0.9)); padding: 25px; color: white;">
+                                <span
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Cero
+                                    Errores</span>
+                                <div style="font-weight: 800; font-size: 16px; margin-top: 5px;">Logística Automatizada
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: relative; border-radius: 30px; overflow: hidden; height: 280px; box-shadow: var(--shadow-sm); cursor: pointer;"
+                            class="hover-scale" onclick="openScale('monitoring')">
+                            <img src="imagenes/bpack_remote_monitoring_hd_new.png"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,37,64,0.9)); padding: 25px; color: white;">
+                                <span
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Seguimiento
+                                    Total</span>
+                                <div style="font-weight: 800; font-size: 16px; margin-top: 5px;">24/7 Monitoreo Remoto
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: relative; border-radius: 30px; overflow: hidden; height: 280px; box-shadow: var(--shadow-sm); cursor: pointer;"
+                            class="hover-scale" onclick="openScale('fssc')">
+                            <img src="imagenes/bpack_compliance_fssc_hd_new.png"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <div
+                                style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,37,64,0.9)); padding: 25px; color: white;">
+                                <span
+                                    style="font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8;">Inocuidad
+                                    Garantizada</span>
+                                <div style="font-weight: 800; font-size: 16px; margin-top: 5px;">Cumplimiento FSSC 22000
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALL IMMERSIVE VIEW CONTAINERS -->
+    <div id="machineryView" class="immersive-machine-view">
+        <div class="im-close" onclick="closeMachine()"><i class="ri-close-line"></i></div>
+        <div class="container" id="imContent"></div>
+    </div>
+
+    <div id="productView" class="immersive-machine-view" style="background: #fafbfc;">
+        <div class="im-close" onclick="closeProduct()"><i class="ri-close-line"></i></div>
+        <div class="container" id="prodContent"></div>
+    </div>
+
+    <div id="scaleView" class="immersive-machine-view" style="background: #f8fafc;">
+        <div class="im-close" onclick="closeScale()"><i class="ri-close-line"></i></div>
+        <div class="container" id="scaleContent"></div>
+    </div>
+
+    <div id="solutionView" class="immersive-machine-view" style="background: #eff6ff;">
+        <div class="im-close" onclick="closeSolution()"><i class="ri-close-line"></i></div>
+        <div class="container" id="solContent"></div>
+    </div>
+
+    <div id="historyView" class="immersive-machine-view" style="background: #ffffff;">
+        <div class="im-close" onclick="closeHistory()"><i class="ri-close-line"></i></div>
+        <div class="container" id="historyContent"></div>
+    </div>
+
+    <div id="innovationView" class="immersive-machine-view" style="background: #f8fafc;">
+        <div class="im-close" onclick="closeInnovation()"><i class="ri-close-line"></i></div>
+        <div class="container" id="innContent"></div>
+    </div>
+
+    <!-- Certifications Ribbon -->
+    <div
+        style="background: var(--primary); padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="container"
+            style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 40px;">
+            <div style="text-align: center; color: var(--white);">
+                <i class="ri-shield-star-line"
+                    style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
+                <span style="font-weight: 700; font-size: 20px;">FSSC 22000</span>
+                <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Seguridad
+                    Alimentaria</p>
+            </div>
+            <div style="text-align: center; color: var(--white);">
+                <i class="ri-global-line"
+                    style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
+                <span style="font-weight: 700; font-size: 20px;">SMETA</span>
+                <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Auditoría
+                    Ética</p>
+            </div>
+            <div style="text-align: center; color: var(--white);">
+                <i class="ri-medal-line"
+                    style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
+                <span style="font-weight: 700; font-size: 20px;">ISO 9001</span>
+                <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Gestión de
+                    Calidad</p>
+            </div>
+            <div style="text-align: center; color: var(--white);">
+                <i class="ri-leaf-line"
+                    style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
+                <span style="font-weight: 700; font-size: 20px;">ECO-Friendly</span>
+                <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Materiales
+                    Sustentables</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- History / Experience Section -->
+    <section id="nosotros" class="history-section">
+        <div class="container history-grid">
+            <div class="history-content">
+                <span class="section-tag" style="color: var(--accent);">Líderes en México</span>
+                <h2 class="section-title">Somos la Mejor Opción para sus Empaques</h2>
+                <p style="font-size: 20px; opacity: 0.8; margin-bottom: 40px;">Como empresa líder desde hace años, nos
+                    dedicamos a la fabricación de todo tipo de materiales con tecnología que se actualiza
+                    constantemente. En BPack, <b>cualquier idea la hacemos realidad</b>.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item" onclick="openHistory('2006')" style="cursor: pointer;">
+                        <div class="year">2006</div>
+                        <h4>El Comienzo</h4>
+                        <p>Fundación de BPack con el objetivo de ofrecer calidad superior en el mercado local.</p>
+                    </div>
+                    <div class="timeline-item" onclick="openHistory('2015')" style="cursor: pointer;">
+                        <div class="year">2015</div>
+                        <h4>Expansión Tecnológica</h4>
+                        <p>Adquisición de maquinaria de última generación para laminación sin solventes.</p>
+                    </div>
+                    <div class="timeline-item" onclick="openHistory('2026')" style="cursor: pointer;">
+                        <div class="year">2026</div>
+                        <h4>Liderazgo Regional</h4>
+                        <p>Consolidación como referentes en empaques flexibles de alta barrera y eco-amigables.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="history-visual">
+                <img src="imagenes/Nuestra Historia - Evolución de BPack.png" alt="Evolución BPack"
+                    style="border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Infrastructure Section -->
+    <section style="padding: 100px 0; background: var(--dark-blue); color: var(--white); overflow: hidden;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <div>
+                    <span class="section-tag"
+                        style="background: rgba(0, 210, 255, 0.2); color: var(--accent-cyan);">Tecnología de
+                        Punta</span>
+                    <h2 class="section-title" style="color: var(--white);">Infraestructura de Clase Mundial</h2>
+                    <p style="font-size: 18px; opacity: 0.8; margin-bottom: 30px;">Contamos con maquinaria de última
+                        generación para procesos de extrusión, laminación e impresión, garantizando precisión
+                        milimétrica en cada empaque.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px;">
+                            <h4 style="color: var(--accent-cyan);">+20 Años</h4>
+                            <p style="font-size: 14px;">Evolucionando con la industria.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px;">
+                            <h4 style="color: var(--accent-cyan);">100% Precisión</h4>
+                            <p style="font-size: 14px;">Control de calidad riguroso.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="position: relative;">
+                    <img src="imagenes/bpack_factory_main_hd_new.png" alt="Maquinaria BPack"
+                        style="width: 100%; border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
+                    <div style="position: absolute; bottom: -30px; right: -30px; width: 250px; background: var(--primary); padding: 30px; border-radius: 30px; box-shadow: var(--shadow-lg); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('id-permanente')">
+                        <img src="imagenes/bpack_innovation_materials_hd_new.png" alt="Innovación"
+                            style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+                        <p style="font-size: 12px; font-weight: 700; color: white;">I+D Permanente en Nuevos Materiales
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section style="padding: 100px 0; background: var(--white);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Confían en Nosotros</span>
+                <h2 class="section-title">Marcas Líderes que Protegen su Valor con BPack</h2>
+            </div>
+            <div class="brands-grid">
+                <img src="imagenes/Marcas Líderes - Clientes de BPack_1.png" alt="Card 1" class="brand-card-img">
+                <img src="imagenes/Marcas Líderes - Clientes de BPack_2.png" alt="Card 2" class="brand-card-img">
+                <a href="#contacto" style="display: block;">
+                    <img src="imagenes/Marcas Líderes - Clientes de BPack_3.png" alt="Card 3" class="brand-card-img">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" style="padding: 100px 0; background: var(--bg-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <span class="section-tag">Aplicaciones Reales</span>
+                <h2 class="section-title">Galería de Productos y Materiales</h2>
+                <p class="section-desc">Eche un vistazo a la calidad de nuestros terminados y la variedad de estructuras
+                    que fabricamos.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <img src="imagenes/download.jpg" alt="Producto 1"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-1.jpg" alt="Producto 2"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-2.jpg" alt="Producto 3"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-3.jpg" alt="Producto 4"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-4.jpg" alt="Producto 5"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-5.jpg" alt="Producto 6"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-6.jpg" alt="Producto 7"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-7.jpg" alt="Producto 8"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+                <img src="imagenes/download-8.jpg" alt="Producto 9"
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
+                    class="gallery-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <img src="imagenes/Contacto - Hablemos de tu Proyecto.png" alt="Hablemos de tu Proyecto"
+                        style="width: 100%; border-radius: 20px; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
+                    <span class="section-tag">Hablemos</span>
+                    <h2 class="section-title">¿Listo para Impulsar tu Marca?</h2>
+                    <p style="margin-bottom: 40px;">Nuestro equipo de expertos está listo para asesorarte en la mejor
+                        estructura para tu producto.</p>
+
+                    <div class="info-item">
+                        <h4>Llámanos</h4>
+                        <p>+52 55 1234 5678</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Escríbenos</h4>
+                        <p>proyectos@bpack.mx</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Ubicación</h4>
+                        <p>CDMX | Guadalajara | Monterrey</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <div
+                        style="background: var(--white); padding: 50px; border-radius: 30px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label>Nombre</label>
+                                <input type="text" placeholder="Tu nombre completo">
+                            </div>
+                            <div class="form-group">
+                                <label>Empresa</label>
+                                <input type="text" placeholder="Nombre de tu empresa">
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Email</label>
+                                <input type="email" placeholder="ejemplo@empresa.com">
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Mensaje</label>
+                                <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            </div>
+                            <div class="full-width" style="margin-top: 20px;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="width: 100%; justify-content: center;">Enviar Consulta <i
+                                        class="ri-send-plane-fill"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" style="margin-bottom: 24px;">
+                        <img src="imagenes/logo_bpack.png" alt="BPack Logo" class="logo-img"
+                            style="filter: brightness(0) invert(1);">
+                    </a>
+                    <p>Expertos en soluciones de empaque flexible que garantizan la integridad de tus productos con
+                        tecnología de clase mundial.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social-btn"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-btn"><i class="ri-instagram-line"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="html/productos.html">Productos</a></li>
+                        <li><a href="#nosotros">Historia</a></li>
+                        <li><a href="#soluciones">Valores</a></li>
+                        <li><a href="#">Sustentabilidad</a></li>
+                        <li><a href="#">Bolsa de Trabajo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Soluciones</h4>
+                    <ul>
+                        <li><a href="#catalogo">Pouches</a></li>
+                        <li><a href="#catalogo">Bobinas</a></li>
+                        <li><a href="#catalogo">Especialidades</a></li>
+                        <li><a href="#catalogo">Impresión</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-nav">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li>Tel: +52 55 1234 5678</li>
+                        <li>Mail: info@bpack.mx</li>
+                        <li>CDMX, México</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 BPack S.A. de C.V. Todos los derechos reservados. | Diseñado con Innovación.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/525512345678" target="_blank"
+        style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 9999; transition: var(--transition);">
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Machinery Data Engine: Versión Expandida 2026
+        const machineDetails = {
+            'tower-7': {
+                title: 'Torre de Co-Extrusión Multicapa',
+                tag: 'Extrusión de Ingeniería',
+                desc: 'La base de la protección absoluta. Esta imponente torre de 15 metros permite fusionar diversos polímeros en una sola película de alta barrera con hasta 7 capas funcionales.',
+                img: 'imagenes/bpack_extrusion_tower_hd_new.png',
+                specs: {
+                    'Capacidad': '7 Capas Simultáneas',
+                    'Espesor': 'Desde 15 hasta 150 micras',
+                    'Materiales': 'PE, PP, EVOH, Nylon, Biomatos',
+                    'Control': 'Gravimétrico por punto digital'
+                },
+                why: 'Gracias a esta tecnología, podemos crear películas con barreras de oxígeno que superan a cualquier material estándar, protegiendo contra la oxidación sin depender de foil de aluminio.',
+                details: 'El sistema controla molécula por molécula la distribución del EVOH, asegurando una barrera uniforme en todo el ancho del material.'
+            },
+            'flexo-9': {
+                title: 'Impresora Flexográfica de 9 Colores',
+                tag: 'Impresión Alta Gama',
+                desc: 'Nuestra estación de impresión automatizada que permite aplicar hasta 9 estaciones de color simultáneas con registro electrónico de precisión micrométrica.',
+                img: 'imagenes/bpack_flexographic_printer_hd_new.png',
+                specs: {
+                    'Velocidad': '400 metros por minuto',
+                    'Capacidad': 'Hasta 9 colores HD',
+                    'Ancho de Banda': '1,200 mm',
+                    'Secado': 'Túneles de aire caliente LED UV'
+                },
+                why: 'Permite que marcas complejas con muchos pantones o efectos especiales (oro, plata, blanco opaco) se produzcan en una sola pasada con una estabilidad de color perfecta en millones de metros.',
+                details: 'Cuenta con sistemas de inspección 100% digital que detectan cualquier gota o imperfección en tiempo real, garantizando desperdicio cero para nuestros clientes.'
+            },
+            'solventless-lam': {
+                title: 'Laminadora Solventless de Alto Desempeño',
+                tag: 'Laminación Ecológica',
+                desc: 'Tecnología europea dedicada a la unión de películas (BOPP, PET, PE) sin el uso de solventes químicos, eliminando cualquier riesgo de migración de olor al producto final.',
+                img: 'imagenes/bpack_solventless_laminator_hd_new.png',
+                specs: {
+                    'Tipo': 'Laminación en Seco (Monomérica)',
+                    'Eficiencia': 'Sin tiempo de secado en horno',
+                    'Seguridad': 'Libre de olores y químicos nocivos',
+                    'Adhesión': 'Superior a 2.5 N/15mm'
+                },
+                why: 'Fundamental para la industria alimentaria. Garantiza que el empaque sea totalmente neutro y seguro, cumpliendo con las normativas internacionales de inocuidad FSSC 22000.',
+                details: 'Nuestras laminadoras cuentan con control térmico dinámico que asegura que el adhesivo se distribuya de forma molecularmente uniforme.'
+            },
+            'slitter-pro': {
+                title: 'Refiladora de Precisión Infinitesimal',
+                tag: 'Corte Industrial HD',
+                desc: 'Máquina encargada de seccionar las bobinas máster en los anchos precisos requeridos por las envasadoras automáticas de nuestros clientes.',
+                img: 'imagenes/bpack_slitting_precision_hd_new.png',
+                specs: {
+                    'Velocidad de Corte': '600 m/min',
+                    'Tolerancia': '+/- 0.1 mm',
+                    'Anchos': 'Desde 2.5 cm hasta 120 cm',
+                    'Ejes': 'Diferenciales de aire comprimido'
+                },
+                why: 'Un mal corte detiene su línea de producción. Nuestras cuchillas circulares auto-afilables garantizan bordes limpios sin polvo de plástico (Dust-free cutting).',
+                details: 'Posee sensores ultrasónicos que corrigen el borde de impresión para que el empaque siempre quede perfectamente centrado en su máquina.'
+            },
+            'pouch-ekt': {
+                title: 'Confeccionadora de Pouches EKT',
+                tag: 'Conversión Automática',
+                desc: 'Línea de producción versátil encargada de transformar las bobinas de material laminado en bolsas terminadas listas para ser llenadas por el cliente.',
+                img: 'imagenes/bpack_pouch_maker_hd_new.png',
+                specs: {
+                    'Formatos': 'Stand-up, Box Pouch, 3 Sellos',
+                    'Accesorios': 'Inserción de Ziper y Válvulas',
+                    'Precisión': 'Troquelado láser integrado',
+                    'Capacidad': '80 bolsas por minuto'
+                },
+                why: 'Permite una personalización total del formato de bolsa. Desde pequeñas muestras de café con válvula hasta sacos industriales de 20kg con zippers de alta resistencia.',
+                details: 'El sistema de sellado por ultrasonido garantiza que no existan micro-fugas en los puntos críticos de unión.'
+            },
+            'quality-lab': {
+                title: 'BPack Digital Quality Lab',
+                tag: 'Garantía Científica',
+                desc: 'Nuestro búnker de calidad. Un espacio controlado donde se pone a prueba cada metro cuadrado de material producido para verificar que cumple con los estándares más exigentes.',
+                img: 'imagenes/bpack_quality_lab_hd_new.png',
+                specs: {
+                    'Pruebas': 'Tensión, Punción, COF, Gramaje',
+                    'Barrera': 'Permeabilidad al Oxígeno/Vapor',
+                    'Inocuidad': 'FSSC 22000 Protocol',
+                    'Trazabilidad': '100% Digital via Cloud'
+                },
+                why: 'La ciencia detrás del empaque. No suponemos que el material está bien; lo probamos científicamente bajo condiciones extremas antes de entregarlo.',
+                details: 'Utilizamos microscopía electrónica para verificar la adhesión molecular de los polímeros en las tri-laminaciones.'
+            },
+            'laser-perf': {
+                title: 'Módulo de Perforación Láser CO2',
+                tag: 'Ingeniería Aeroespacial',
+                desc: 'Sistema de alta frecuencia que realiza perforaciones microscópicas imperceptibles al ojo humano, pero vitales para el intercambio gaseoso controlado.',
+                img: 'imagenes/bpack_laser_hd_new.png',
+                specs: {
+                    'Tecnología': 'Láser CO2 de 300W',
+                    'Precisión': '50 micras (Hole diameter)',
+                    'Velocidad': 'Sincronizada a 400 m/min',
+                    'Aplicación': 'Frutas, Vegetales, Microondas'
+                },
+                why: 'Permite que el empaque "respire", extendiendo la vida de anaquel de vegetales frescos hasta un 40% adicional. También permite la salida de vapor en empaques para microondas (Easy-vent).',
+                details: 'El sistema cuenta con sensores infrarrojos que validan la perforación individual de cada orificio en milisegundos.'
+            }
+        };
+
+        const historyDetails = {
+            '2006': {
+                title: '2006: La Fundación',
+                tag: 'Nuestra Historia',
+                desc: 'BPack nace con la visión de revolucionar el mercado de empaque flexible en la región, apostando por la calidad de sellado y materiales vírgenes desde el primer día.',
+                img: 'imagenes/2006 El Comienzo.png',
+                specs: {
+                    'Visión': 'Liderazgo en Calidad Regional',
+                    'Enfoque': 'Integridad de Empaque',
+                    'Infraestructura': '1 Línea de Extrusión Maestro',
+                    'Pasión': 'Servicio Personalizado'
+                }
+            },
+            '2015': {
+                title: '2015: Salto Tecnológico',
+                tag: 'Expansión',
+                desc: 'Inauguramos nuestra planta de alta eficiencia e incorporamos tecnología europea de laminación sin solventes, garantizando productos 100% inocuos.',
+                img: 'imagenes/2015 Expansion.png',
+                specs: {
+                    'Crecimiento': '+300% Capacidad Instalada',
+                    'Alcance': 'Exportación a 5 Países',
+                    'Tecnología': '9 Estaciones Flexográficas HD',
+                    'Certificación': 'Implementación ISO 9001'
+                }
+            },
+            '2026': {
+                title: '2026: Liderazgo 4.0',
+                tag: 'Futuro Presente',
+                desc: 'Consolidación como la planta más avanzada de México. Liderando la transición hacia economías circulares con materiales bio-compostables y monitoreo predictivo.',
+                img: 'imagenes/2026 Liderazgo.png',
+                specs: {
+                    'Inteligencia': 'Monitoreo Predictivo via IA',
+                    'Sustentabilidad': '100% de Portafolio Circular',
+                    'Compromiso': 'Reducción de Plásticos Vírgenes',
+                    'Rango': '#1 en Innovación de Barrera'
+                }
+            }
+        };
+
+        const productDetails = {
+            'box-pouch': {
+                title: 'Box Pouch 8 Sellos',
+                tag: 'Innovación BPack',
+                desc: 'La solución definitiva para marcas que buscan dominar el anaquel. Combina la estabilidad de una caja con la ligereza y eficiencia del empaque flexible.',
+                img: 'Productos-img/BOX_POUCH_HD.png',
+                specs: {
+                    'Materiales': 'PET / MET / PE Multi-capa',
+                    'Uso': 'Alimentos para mascotas, Café gourmet',
+                    'Impresión': '5 Caras de alta resolución',
+                    'Ahorro': 'Hasta 30% vs Cajas rígidas'
+                }
+            },
+            'doypack': {
+                title: 'Stand-Up Pouch (Doypack)',
+                tag: 'Versatilidad Total',
+                desc: 'El formato más popular del mercado. Su base redondeada permite que el producto se mantenga vertical, maximizando su visibilidad en punto de venta.',
+                img: 'imagenes/bpack_doypack_hd.png',
+                specs: {
+                    'Materiales': 'BOPP / BOPP Metalizado',
+                    'Uso': 'Botanas, Frutos secos, Líquidos',
+                    'Accesorios': 'Zipper resellable y abre fácil',
+                    'Acabado': 'Brillo o Mate premium'
+                }
+            },
+            'polifoil': {
+                title: 'PET / POLIFOIL',
+                tag: 'Barrera Absoluta',
+                desc: 'Diseñado para productos que requieren protección extrema contra el oxígeno y la luz. La capa de aluminio (Foil) garantiza frescura por periodos prolongados.',
+                img: 'Productos-img/PET-POLIFOIL_HD.png',
+                specs: {
+                    'Protección': '100% Opacidad y Barrera O2',
+                    'Uso': 'Café tostado, Leche en polvo',
+                    'Resistencia': 'Alta punción y desgarre',
+                    'Válvula': 'Compatible con desgasificación'
+                }
+            },
+            'bobinas': {
+                title: 'Bobinas Laminadas',
+                tag: 'Envasado Automático',
+                desc: 'Películas técnicas en rollo optimizadas para máquinas de alta velocidad HFFS y VFFS. Estabilidad dimensional perfecta para líneas industriales.',
+                img: 'imagenes/bpack_laminated_roll_hd.png',
+                specs: {
+                    'Velocidad': 'Optimizado para bajo COF',
+                    'Estructura': 'Bi-laminada y Tri-laminada',
+                    'Registro': 'HD 9 estaciones',
+                    'Aplicación': 'Galletería, Snacks, Panificación'
+                }
+            },
+            'retortable': {
+                title: 'Empaque Retortable',
+                tag: 'Resistencia Térmica',
+                desc: 'Tecnología que permite procesar el producto dentro de su empaque en autoclaves, sustituyendo latas metálicas por bolsas ligeras.',
+                img: 'imagenes/bpack_retortable_hd.png',
+                specs: {
+                    'Calor': 'Hasta 121°C (Autoclave)',
+                    'Capas': 'PET / AL / NY / PE',
+                    'Esterilidad': 'Garantizada comercialmente',
+                    'Peso': '90% reducción vs latas'
+                }
+            }
+        };
+
+        const solutionDetails = {
+            'proteccion': {
+                title: 'Blindaje de Frescura BPack',
+                tag: 'Barrera de Ingeniería',
+                desc: 'Nuestras soluciones de protección total utilizan co-extrusiones multicapa con polímeros de alto rendimiento como EVOH y Nylon. Estas estructuras están diseñadas para detener la migración de oxígeno, vapor de agua y aromas, asegurando que su producto mantenga sus propiedades organolépticas originales durante toda su vida de anaquel. No solo empacamos; aplicamos ciencia de materiales para crear un microclima perfecto que blinda la frescura contra factores externos como la oxidación y la deshidratación.',
+                img: 'imagenes/solution_protection_detail.png',
+                specs: {
+                    'Barrera O2': '< 1.0 cc/m2/day',
+                    'Transmisión de Vapor': '< 0.5 g/m2/day',
+                    'Protección UV': 'Hasta 99% mediante metalización',
+                    'Resistencia Térmica': 'Apta para llenado en caliente'
+                }
+            },
+            'sostenibilidad': {
+                title: 'Compromiso Circular BPack',
+                tag: 'Empaque Eco-Consciente',
+                desc: 'Lideramos la transición hacia un futuro sin desperdicio. Nuestra línea de sostenibilidad ofrece estructuras monomateriales 100% reciclables y opciones biocompostables que se degradan de forma natural sin dejar microplásticos. Reducimos el espesor de las películas mediante optimización molecular (down-gauging) sin sacrificar la resistencia, lo que disminuye significativamente la huella de carbono y el uso de resinas vírgenes, permitiendo que su marca cumpla con los objetivos de ESG más ambiciosos.',
+                img: 'imagenes/solution_sustainability_detail.png',
+                specs: {
+                    'Materiales': 'PE/PE Monomaterial Reciclable',
+                    'Reducción de Plástico': 'Hasta 30% via Down-gauging',
+                    'Certificación': 'Protocolo de Economía Circular 2026',
+                    'Biodegradabilidad': 'Opciones Compost Industrial/Home'
+                }
+            },
+            'alta-velocidad': {
+                title: 'Productividad Ininterrumpida',
+                tag: 'Eficiencia Operativa',
+                desc: 'El tiempo es oro en las líneas de envasado automáticas. Nuestras películas de alta velocidad están formuladas con un bajo Coeficiente de Fricción (COF) controlado y una ventana de sellado ultra-amplia que permite operar a las revoluciones máximas de su maquinaria (VFFS/HFFS). Eliminamos los problemas de "blocking" y "static", reduciendo drásticamente los paros técnicos y el desperdicio. Con BPack, su línea fluye con la precisión de un reloj suizo, maximizando el rendimiento por hora de su planta.',
+                img: 'imagenes/solution_speed_detail.png',
+                specs: {
+                    'COF Kinético': '0.20 ± 0.05',
+                    'Hot Tack': 'Superior a 5.0 N/inc',
+                    'Velocidad Op': 'Hasta 150 golpes/minuto',
+                    'Estabilidad': 'Control anti-estático HD'
+                }
+            },
+            'impresion-hd': {
+                title: 'Hiper-Realismo en Anaquel',
+                tag: 'Vibrancia Gráfica',
+                desc: 'Su marca merece brillar. Nuestra tecnología de impresión HD Flexo utiliza planchas de punto plano (Flat-Top Dot) y sistemas de gestión de color espectrofotométrico para lograr una fidelidad fotográfica que cautiva al consumidor. Logramos degradados suaves, negros profundos y colores corporativos consistentes en cada tiraje. El impacto visual es comparable al rotograbado pero con la agilidad y el costo eficiente de la flexografía moderna, asegurando que su producto sea el protagonista absoluto en el anaquel.',
+                img: 'imagenes/solution_printing_detail.png',
+                specs: {
+                    'Lineatura': '175 - 200 LPI',
+                    'Gama': '9 Estaciones de Color',
+                    'Precisión': 'Registro Digital Automatizado',
+                    'Acabados': 'Barniz Mate, Brillo, Soft-Touch'
+                }
+            }
+        };
+
+        const scaleDetails = {
+            'conversion': {
+                title: 'Maestría en Conversión Automática',
+                tag: 'Fabricación de Pouches',
+                desc: 'Nuestra sala de bolseo cuenta con líneas de conversión de alta tecnología capaces de fabricar los formatos más complejos del mercado, desde Stand-up pouches con ziper hasta Box Pouches de 8 sellos. Cada unidad es sometida a pruebas de presión y sellado por ultrasonido para garantizar la hermeticidad total. La precisión en el troquelado y la inserción de válvulas desgasificadoras o boquillas se realiza de forma 100% automatizada, asegurando una uniformidad absoluta en millones de piezas.',
+                img: 'imagenes/bpack_conversion_lines_hd_new.png',
+                specs: {
+                    'Capacidad': '> 10 Millones de bolsas/mes',
+                    'Formatos': 'Doypack, Box Pouch, 3 Sellos',
+                    'Accesorios': 'Ziper, Válvula, Euro-hole, Laser-tear',
+                    'Precisión': 'Sellado Controlado por PLC'
+                }
+            },
+            'logistics': {
+                title: 'Logística Inteligente 4.0',
+                tag: 'Cadena de Suministro',
+                desc: 'La integración de sistemas ERP con nuestro almacén inteligente permite una trazabilidad total desde la recepción de la materia prima hasta la entrega del producto final. Utilizamos sistemas de picking automatizado y monitoreo de inventario en tiempo real para garantizar entregas "Just-in-Time", eliminando los cuellos de botella para nuestros clientes. Nuestra flota logística está geolocalizada, permitiendo que usted conozca el estatus exacto de su pedido en cualquier momento, asegurando que su producción nunca se detenga por falta de material.',
+                img: 'imagenes/bpack_auto_logistics_hd_new.png',
+                specs: {
+                    'Trazabilidad': '100% Digital via QR/Lote',
+                    'Exactitud': '99.9% en Inventario Digital',
+                    'Alcance': 'Cobertura Nacional e Internacional',
+                    'Integración': 'EDI / API para Clientes Corporativos'
+                }
+            },
+            'monitoring': {
+                title: 'Vigilancia Telemétrica 24/7',
+                tag: 'Control de Calidad Digital',
+                desc: 'No dejamos nada al azar. Cada máquina en BPack está equipada con sensores que transmiten datos telemétricos a nuestro centro de monitoreo principal. Estudiamos las tendencias de presión, temperatura y tensión en micro-segundos para detectar cualquier anomalía antes de que afecte la calidad. Este enfoque predictivo nos permite realizar mantenimientos proactivos y ajustes de proceso dinámicos, garantizando que el material que llega a sus manos cumple exactamente con la ficha técnica aprobada, lote tras lote.',
+                img: 'imagenes/bpack_remote_monitoring_hd_new.png',
+                specs: {
+                    'Sensores': '> 500 Puntos Digitales por Línea',
+                    'Respuesta': 'Ajuste Automático en Real-Time',
+                    'Históricos': 'Data-Cloud de hasta 10 años',
+                    'Acceso': 'Dashboard de Producción para Clientes'
+                }
+            },
+            'fssc': {
+                title: 'Baluarte de Inocuidad FSSC 22000',
+                tag: 'Certificación Global',
+                desc: 'La seguridad alimentaria es nuestra máxima prioridad. Contamos con la certificación FSSC 22000, el estándar de oro en inocuidad reconocido globalmente. Nuestras instalaciones operan bajo estrictos protocolos de áreas limpias, control de plagas avanzado y manejo higiénico de personal. Cada insumo que utilizamos es grado alimenticio y cuenta con certificados de conformidad. Este rigor nos permite ser socios estratégicos de las marcas de alimentos y medicinas más importantes del mundo, brindando la tranquilidad de que su empaque es totalmente seguro para el consumidor final.',
+                img: 'imagenes/bpack_compliance_fssc_hd_new.png',
+                specs: {
+                    'Nivel': 'GFSI (Global Food Safety Initiative)',
+                    'Auditoría': 'Inspecciones Anuales Rigurosas',
+                    'Materiales': '100% Grado Alimenticio FDA/EU',
+                    'Higiene': 'Protocolos de Sanitización Industrial'
+                }
+            }
+        };
+
+        const innovationDetails = {
+            'color-hd': {
+                title: 'Supremacía Cromática HD',
+                tag: 'Artes Gráficas 2026',
+                desc: 'La impresión flexográfica de BPack no es simplemente tinta sobre plástico; es ingeniería visual aplicada. Utilizamos tecnología de vanguardia que integra estaciones de impresión gearless (sin engranajes) para eliminar cualquier vibración mecánica, lo que nos permite alcanzar un registro microscópico constante incluso a velocidades de 500 metros por minuto. Nuestro sistema dinámico de gestión de color asegura que el primer metro de su producción sea idéntico al último, garantizando la consistencia de marca que exigen las corporaciones globales. Cada detalle, desde los sutiles degradados en luces hasta la densidad profunda en las sombras, es supervisado por cámaras de inspección digital que validan cada punto de color contra un patrón maestro digital, asegurando un desperdicio cero y un impacto visual máximo en el punto de venta.',
+                img: 'imagenes/solution_printing_detail.png',
+                specs: {
+                    'Resolución Máxima': 'Pantallas de 175-200 LPI HD',
+                    'Precisión de Registro': 'Control Digital +/- 0.05mm',
+                    'Tecnología de Plancha': 'Puntos de cabeza plana (Flat-Top Dot)',
+                    'Estabilidad': 'Monitoreo de viscosidad automático 24/7'
+                }
+            },
+            'monitoreo-ia': {
+                title: 'Ecosistema de Monitoreo 4.0',
+                tag: 'Inteligencia Operativa',
+                desc: 'Bienvenidos a la fábrica del futuro. El ecosistema BPack 4.0 es una red neuronal industrial donde cada máquina, sensor y trabajador está interconectado en una plataforma de datos masivos. Mediante el uso de telemetría avanzada, capturamos miles de puntos de datos por segundo, desde la tensión del sustrato hasta las fluctuaciones térmicas en las capas de barrera. Nuestra inteligencia artificial analiza estos datos en tiempo real para predecir posibles desviaciones de calidad antes de que ocurran, permitiendo ajustes proactivos que garantizan la integridad de cada lote. Para nuestros clientes, esto se traduce en una transparencia total: trazabilidad completa de cada bobina, reportes de eficiencia digitalizados y la seguridad de que su empaque ha sido fabricado bajo las condiciones exactas de especificación técnica, eliminando cualquier riesgo de falla en sus líneas de envasado automáticas.',
+                img: 'imagenes/bpack_remote_monitoring_hd_new.png',
+                specs: {
+                    'Conectividad': 'Red Industrial IoT Segura',
+                    'Análisis Predictivo': 'Motores de IA para Control de Proceso',
+                    'Transparencia': 'Portal de Trazabilidad para Clientes 24/7',
+                    'Mantenimiento': 'Algoritmos de Predicción de Fallas'
+                }
+            },
+            'polimeros-puros': {
+                title: 'Pureza Molecular Certificada',
+                tag: 'Inocuidad Extrema',
+                desc: 'En la industria del empaque flexible, la seguridad no es negociable. Nuestra dedicación a la inocuidad comienza a nivel molecular. Seleccionamos rigurosamente solo materias primas de proveedores globales líderes, garantizando resinas 100% vírgenes con certificaciones de grado alimentario de la FDA y la Unión Europea. Nuestro proceso de extrusión se lleva a cabo en entornos controlados con sistemas de filtrado de doble etapa que eliminan cualquier impureza microscópica. Además, nuestro laboratorio interno realiza pruebas de cromatografía de gases para asegurar que no existan migraciones de solventes o contaminantes volátiles que puedan afectar el sabor o la seguridad de su producto. Con BPack, usted obtiene un empaque que no solo protege físicamente, sino que actúa como una barrera estéril y pura, cumpliendo con los protocolos de seguridad alimentaria más estrictos del mundo, incluyendo la certificación FSSC 22000.',
+                img: 'imagenes/bpack_premium_raw_hd_new.png',
+                specs: {
+                    'Origen de Resina': 'Materia Prima 100% Virgen Certificada',
+                    'Control de Inocuidad': 'Protocolos FSSC 22000 Grado Alimentario',
+                    'Análisis de Filtrado': 'Mallas de alta densidad de Doble Etapa',
+                    'Pruebas de Calidad': 'Monitoreo de Migración Molecular'
+                }
+            },
+            'id-permanente': {
+                title: 'I+D Permanente: El ADN de BPack',
+                tag: 'Ingeniería de Materiales',
+                desc: 'La innovación no se detiene en BPack. Nuestro departamento de Investigación y Desarrollo (I+D) trabaja incansablemente en la creación de estructuras disruptivas que desafían los límites del empaque flexible. Desde la implementación de nano-aditivos que mejoran la barrera sin aumentar el espesor, hasta el desarrollo de películas inteligentes que cambian de color ante variaciones de temperatura. Colaboramos con universidades y centros tecnológicos globales para asegurar que su marca siempre tenga acceso a la vanguardia absoluta en protección, estética y sostenibilidad.',
+                img: 'imagenes/bpack_innovation_materials_hd_new.png',
+                specs: {
+                    'Enfoque': 'Nano-tecnología y Bio-polímeros',
+                    'Inversión': '> 5% de ingresos anuales en I+D',
+                    'Patentes': 'Diseños industriales exclusivos',
+                    'Laboratorio': 'Equipamiento de última generación'
+                }
+            }
+        };
+
+        function openInnovation(id) {
+            const data = innovationDetails[id];
+            if (!data) return;
+            renderView('innContent', 'innovationView', data, closeInnovation);
+        }
+
+        function closeInnovation() {
+            document.getElementById('innovationView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openMachine(id) {
+            const data = machineDetails[id];
+            if (!data) return;
+            renderView('imContent', 'machineryView', data, closeMachine);
+        }
+
+        function closeMachine() {
+            document.getElementById('machineryView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openProduct(id) {
+            const data = productDetails[id];
+            if (!data) return;
+            renderView('prodContent', 'productView', data, closeProduct);
+        }
+
+        function closeProduct() {
+            document.getElementById('productView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openHistory(id) {
+            const data = historyDetails[id];
+            if (!data) return;
+            renderView('historyContent', 'historyView', data, closeHistory);
+        }
+
+        function closeHistory() {
+            document.getElementById('historyView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openScale(id) {
+            const data = scaleDetails[id];
+            if (!data) return;
+            renderView('scaleContent', 'scaleView', data, closeScale);
+        }
+
+        function closeScale() {
+            document.getElementById('scaleView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openSolution(id) {
+            const data = solutionDetails[id];
+            if (!data) return;
+            renderView('solContent', 'solutionView', data, closeSolution);
+        }
+
+        function closeSolution() {
+            document.getElementById('solutionView').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function renderView(containerId, viewId, data, closeFn) {
+            const content = `
+                <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; padding-bottom: 50px;">
+                    <div style="position: sticky; top: 0; background: #fff; padding: 40px; border-radius: 40px; box-shadow: var(--shadow-sm);">
+                        <img src="${data.img}" style="width: 100%; border-radius: 30px; box-shadow: var(--shadow-lg); max-height: 500px; object-fit: contain;">
+                        
+                        <div style="margin-top: 40px;">
+                            <h4 style="margin-bottom: 20px; color: var(--primary); font-size: 14px; text-transform: uppercase;">Especificaciones Técnicas</h4>
+                            ${Object.entries(data.specs).map(([label, val]) => `
+                                <div style="display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.03);">
+                                    <span style="font-weight: 800; color: var(--primary); font-size: 13px;">${label}</span>
+                                    <span style="font-size: 13px;">${val}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <span class="machine-tag">${data.tag}</span>
+                        <h2 style="font-size: 52px; color: var(--primary); margin-bottom: 24px; line-height: 1.1;">${data.title}</h2>
+                        <p style="font-size: 20px; opacity: 0.8; line-height: 1.6; margin-bottom: 40px;">${data.desc}</p>
+                        
+                        <div style="background: #f1f5f9; padding: 40px; border-radius: 30px; margin-bottom: 40px;">
+                            <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 18px;">Ventaja BPack</h3>
+                            <p style="font-size: 16px; opacity: 0.8;">Nuestras soluciones están diseñadas bajo los más estrictos estándares internacionales de calidad e inocuidad, garantizando que su producto llegue perfecto al anaquel.</p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 20px; margin-top: 50px;">
+                            <a href="#contacto" onclick="${closeFn.name}()" class="btn btn-primary" style="flex: 1; justify-content: center;">Solicitar Asesoría</a>
+                            <button onclick="${closeFn.name}()" class="btn" style="border: 1px solid var(--border); border-radius: 50px; padding: 15px 30px; font-weight: 700;">Volver</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById(containerId).innerHTML = content;
+            document.getElementById(viewId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+            ScrollReveal().reveal('#' + containerId, { delay: 100, distance: '50px', origin: 'bottom' });
+        }
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Current Section Observer
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }
+            });
+        });
+
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('.hero-content', { delay: 300, distance: '50px', origin: 'bottom' });
+        ScrollReveal().reveal('.discover-image', { delay: 400, distance: '100px', origin: 'left' });
+        ScrollReveal().reveal('.discover-content', { delay: 500, distance: '100px', origin: 'right' });
+        ScrollReveal().reveal('.catalog-card', { delay: 300, interval: 200, distance: '30px', origin: 'bottom' });
+        ScrollReveal().reveal('.timeline-item', { delay: 300, interval: 300, distance: '50px', origin: 'left' });
+        ScrollReveal().reveal('.contact-info', { delay: 400, distance: '50px', origin: 'left' });
+        ScrollReveal().reveal('.contact-form-container', { delay: 500, distance: '50px', origin: 'right' });
+        ScrollReveal().reveal('.reveal-left', { delay: 300, distance: '50px', origin: 'left' });
+        ScrollReveal().reveal('.reveal-right', { delay: 300, distance: '50px', origin: 'right' });
+        ScrollReveal().reveal('#tecnologia .section-tag, #tecnologia .section-title, #tecnologia .section-desc', { delay: 200, interval: 200, distance: '30px', origin: 'top' });
+        ScrollReveal().reveal('.machine-card', { delay: 300, interval: 200, distance: '30px', origin: 'bottom' });
+    </script>
+</body>
+
+</html>

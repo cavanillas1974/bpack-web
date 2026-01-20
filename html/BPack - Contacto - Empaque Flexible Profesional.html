@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>BPack - Contacto</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Font Imports */
+        @font-face {
+            font-family: 'AlibabaPuHuiTi';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Regular.otf');
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'AlibabaPuHuiTi-Bold';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Bold.otf');
+            font-weight: bold;
+        }
+        @font-face {
+            font-family: 'MiSans';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf');
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'MiSans-Medium';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Medium.ttf');
+            font-weight: 500;
+        }
+
+        /* Variables */
+        :root {
+            --primary: #0A2540; /* Deep Navy */
+            --secondary: #00AEEF; /* Cyan Blue */
+            --accent: #FF5A5F; /* Soft Red for CTA or errors */
+            --text-dark: #1A202C;
+            --text-gray: #4A5568;
+            --bg-light: #F7FAFC;
+            --white: #FFFFFF;
+            --border: #E2E8F0;
+            --container-width: 1400px;
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 1920px;
+            font-family: 'MiSans', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'AlibabaPuHuiTi-Bold', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Helpers */
+        .container {
+            width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-family: 'MiSans-Medium', sans-serif;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 174, 239, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #0095cd;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-green {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .btn-dark {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            height: 90px;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-family: 'AlibabaPuHuiTi-Bold';
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-family: 'MiSans-Medium';
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 600px;
+            background-image: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.6)), url('../imagenes/https://a.lovart.ai/artifacts/agent/b1F69Y1COWj96YUt.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            font-family: 'MiSans', sans-serif;
+            margin-bottom: 0;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid-section {
+            background-color: var(--white);
+            position: relative;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Contact Info Sidebar */
+        .info-card {
+            background-color: var(--bg-light);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .info-item {
+            margin-bottom: 40px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-item h4 {
+            font-size: 18px;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-content i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-top: 2px;
+        }
+
+        .info-text {
+            font-size: 18px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .info-text a {
+            border-bottom: 1px solid transparent;
+        }
+        .info-text a:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        /* Form */
+        .form-wrapper h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            height: 56px;
+            padding: 0 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'MiSans';
+            font-size: 16px;
+            background-color: var(--bg-light);
+            transition: 0.3s;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            padding: 20px;
+            resize: none;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 174, 239, 0.1);
+        }
+
+        /* Locations */
+        .locations-section {
+            background-color: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .location-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .map-placeholder {
+            height: 200px;
+            background-color: #e5e7eb;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Abstract Map CSS */
+        .map-lines {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 49%, #ffffff 50%, transparent 51%),
+                linear-gradient(0deg, transparent 49%, #ffffff 50%, transparent 51%);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+        .map-pin {
+            font-size: 32px;
+            color: var(--primary);
+            z-index: 2;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+        }
+
+        .location-details {
+            padding: 30px;
+        }
+
+        .location-details h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .loc-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .loc-info i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        /* Team Section */
+        .team-section {
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            border-color: var(--secondary);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--bg-light);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Simulated avatar gradient */
+        .avatar::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(10, 37, 64, 0.1));
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .team-card p {
+            font-size: 14px;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 48px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Background Pattern for CTA */
+        .cta-bg-pattern {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 25%),
+                              radial-gradient(circle at 80% 80%, rgba(0, 174, 239, 0.1) 0%, transparent 30%);
+            pointer-events: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #061626; /* Darker Navy */
+            color: #94A3B8;
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 60px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <i class="ri-box-3-fill" style="color: var(--secondary); font-size: 32px;"></i>
+                BPack
+            </div>
+            <nav class="nav-links">
+                <a href="#">Inicio</a>
+                <a href="#">Soluciones</a>
+                <a href="#">Empaques</a>
+                <a href="#">Sustentabilidad</a>
+                <a href="#" class="active">Contacto</a>
+            </nav>
+            <a href="#" class="btn btn-primary" style="padding: 10px 24px; height: auto;">
+                Cotizar Ahora
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¿Listo para comenzar tu proyecto?</h1>
+            <p>Contáctanos para discutir tus necesidades de empaque flexible. <br>Innovación y calidad en cada detalle.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    
+    <!-- Contact Form & Info Section -->
+    <section class="section contact-grid-section">
+        <div class="container grid-container">
+            <!-- Sidebar Info -->
+            <aside class="info-card">
+                <div class="info-item">
+                    <h4>Información de Contacto</h4>
+                    <p>Estamos aquí para ayudarte. Elige el medio que prefieras.</p>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-content">
+                        <i class="ri-mail-send-line"></i>
+                        <div class="info-text">
+                            <strong>Email:</strong><br>
+                            <a href="mailto:info@bpack.com">info@bpack.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-content">
+                        <i class="ri-phone-line"></i>
+                        <div class="info-text">
+                            <strong>Teléfono:</strong><br>
+                            <a href="tel:+525512345678">+52 55 1234 5678</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-content">
+                        <i class="ri-whatsapp-line"></i>
+                        <div class="info-text">
+                            <strong>WhatsApp:</strong><br>
+                            <a href="#">+52 55 9876 5432</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-content">
+                        <i class="ri-time-line"></i>
+                        <div class="info-text">
+                            <strong>Horario de Atención:</strong><br>
+                            Lunes a Viernes<br>9:00 - 18:00
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contact Form -->
+            <div class="form-wrapper">
+                <h2>Envíanos un Mensaje</h2>
+                <p class="form-subtitle">Completa el formulario y nuestro equipo te contactará en breve.</p>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" class="form-control" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input type="text" class="form-control" placeholder="Nombre de tu empresa">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Corporativo</label>
+                        <input type="email" class="form-control" placeholder="ejemplo@empresa.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" class="form-control" placeholder="+52 ...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Asunto</label>
+                        <input type="text" class="form-control" placeholder="¿En qué podemos ayudarte?">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Mensaje</label>
+                        <textarea class="form-control" placeholder="Describe tu proyecto o consulta..."></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary" style="width: fit-content;">
+                            Enviar Mensaje <i class="ri-send-plane-fill"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section locations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestras Oficinas</h2>
+                <p>Con presencia estratégica en las principales ciudades de México para brindarte el mejor servicio logístico y comercial.</p>
+            </div>
+            
+            <div class="locations-grid">
+                <!-- Location 1 -->
+                <div class="location-card">
+                    <div class="map-placeholder">
+                        <div class="map-lines"></div>
+                        <i class="ri-map-pin-fill map-pin"></i>
+                    </div>
+                    <div class="location-details">
+                        <h3>Ciudad de México</h3>
+                        <div class="loc-info">
+                            <i class="ri-map-pin-2-line"></i>
+                            <span>Av. Reforma 222, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX</span>
+                        </div>
+                        <div class="loc-info">
+                            <i class="ri-phone-line"></i>
+                            <span>+52 55 1234 5678</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="location-card">
+                    <div class="map-placeholder">
+                        <div class="map-lines"></div>
+                        <i class="ri-map-pin-fill map-pin"></i>
+                    </div>
+                    <div class="location-details">
+                        <h3>Guadalajara</h3>
+                        <div class="loc-info">
+                            <i class="ri-map-pin-2-line"></i>
+                            <span>Av. Vallarta 2440, Arcos Vallarta, 44130 Guadalajara, Jal.</span>
+                        </div>
+                        <div class="loc-info">
+                            <i class="ri-phone-line"></i>
+                            <span>+52 33 9876 5432</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="location-card">
+                    <div class="map-placeholder">
+                        <div class="map-lines"></div>
+                        <i class="ri-map-pin-fill map-pin"></i>
+                    </div>
+                    <div class="location-details">
+                        <h3>Monterrey</h3>
+                        <div class="loc-info">
+                            <i class="ri-map-pin-2-line"></i>
+                            <span>Av. Lázaro Cárdenas 2400, Valle Oriente, 66269 Monterrey, N.L.</span>
+                        </div>
+                        <div class="loc-info">
+                            <i class="ri-phone-line"></i>
+                            <span>+52 81 1234 5678</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestro Equipo de Soporte</h2>
+                <p>Contamos con expertos dedicados a resolver tus dudas y optimizar tus procesos de empaque.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">
+                        <i class="ri-user-smile-line"></i>
+                    </div>
+                    <h3>Carlos Méndez</h3>
+                    <p>Director Comercial</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">
+                        <i class="ri-user-voice-line"></i>
+                    </div>
+                    <h3>Ana García</h3>
+                    <p>Atención a Clientes</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">
+                        <i class="ri-user-settings-line"></i>
+                    </div>
+                    <h3>Roberto Díaz</h3>
+                    <p>Soporte Técnico</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">
+                        <i class="ri-user-star-line"></i>
+                    </div>
+                    <h3>Laura Torres</h3>
+                    <p>Logística</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgent CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg-pattern"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h2>¿Tienes una pregunta urgente?</h2>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-green">
+                    <i class="ri-whatsapp-line"></i> Contactar por WhatsApp
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <i class="ri-phone-fill"></i> Llamar Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <h2>BPack</h2>
+                    </div>
+                    <p>Líderes en soluciones de empaque flexible. Innovación y compromiso con la calidad en cada entrega.</p>
+                </div>
+                <div class="footer-col" style="display: flex; gap: 60px;">
+                    <div>
+                        <h4 style="color:white; margin-bottom: 20px;">Empresa</h4>
+                        <ul style="line-height: 2; color: #94A3B8;">
+                            <li><a href="#">Nosotros</a></li>
+                            <li><a href="#">Historia</a></li>
+                            <li><a href="#">Carreras</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:white; margin-bottom: 20px;">Soporte</h4>
+                        <ul style="line-height: 2; color: #94A3B8;">
+                            <li><a href="#">Ayuda</a></li>
+                            <li><a href="#">Envíos</a></li>
+                            <li><a href="#">Devoluciones</a></li>
+                            <li><a href="#">Términos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color:white; margin-bottom: 20px;">Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="ri-linkedin-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-instagram-fill"></i></a>
+                        <a href="#" class="social-icon"><i class="ri-twitter-x-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BPack. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPack - Nuestra Historia</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Bold.otf');
+        }
+        @font-face {
+            font-family: 'Alibaba-PuHuiTi-Regular';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Regular.otf');
+        }
+        @font-face {
+            font-family: 'Alibaba-PuHuiTi-Medium';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/Alibaba-PuHuiTi-Medium.otf');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            font-family: 'Alibaba-PuHuiTi-Regular', sans-serif;
+            color: #333333;
+            overflow-x: hidden;
+        }
+
+        /* Variables */
+        :root {
+            --primary-blue: #004B8D;
+            --secondary-blue: #00A3E0;
+            --dark-blue: #002a52;
+            --light-bg: #F5F7FA;
+            --text-grey: #5E6D82;
+            --accent-green: #28a745;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 900px;
+            background-image: url('../imagenes/https://a.lovart.ai/artifacts/agent/xcgnEu4IPvIaqWRf.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 42, 82, 0.9) 0%, rgba(0, 75, 141, 0.7) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 80px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Alibaba-PuHuiTi-Medium';
+            font-size: 32px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 40px;
+            color: white;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 120px 160px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+        }
+
+        .mv-card {
+            background: var(--light-bg);
+            padding: 60px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--secondary-blue);
+        }
+
+        .mv-icon {
+            font-size: 48px;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .mv-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 40px;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .mv-text {
+            font-size: 24px;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 120px 160px;
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 56px;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .section-desc {
+            font-size: 24px;
+            color: var(--text-grey);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .value-icon-box {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 163, 224, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: var(--secondary-blue);
+        }
+
+        .value-icon-box i {
+            font-size: 48px;
+        }
+
+        .value-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 28px;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .value-text {
+            font-size: 18px;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 120px 160px;
+            background: white;
+            position: relative;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #E0E6ED;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-blue);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+            text-align: right;
+            border-left: none;
+            border-right: 5px solid var(--primary-blue);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .timeline-year {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 64px;
+            color: rgba(0, 75, 141, 0.1);
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            line-height: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: auto;
+            left: 30px;
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            background: var(--secondary-blue);
+            border: 4px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(0, 163, 224, 0.2);
+            z-index: 2;
+        }
+
+        .timeline-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-desc {
+            font-size: 20px;
+            color: var(--text-grey);
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Certifications */
+        .cert-section {
+            padding: 100px 160px;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cert-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 48px;
+            margin-bottom: 60px;
+        }
+
+        .cert-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            width: 240px;
+            height: 240px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .cert-badge:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .cert-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: var(--secondary-blue);
+        }
+
+        .cert-name {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .cert-sub {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 120px 160px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .team-content {
+            width: 50%;
+        }
+
+        .team-image-box {
+            width: 45%;
+            height: 600px;
+            background-color: var(--light-bg); /* Placeholder for team image */
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-image-placeholder {
+            font-size: 80px;
+            color: #d1d5db;
+        }
+
+        .team-tag {
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(0, 163, 224, 0.1);
+            color: var(--secondary-blue);
+            border-radius: 30px;
+            font-family: 'Alibaba-PuHuiTi-Medium';
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .team-title {
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 56px;
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+        }
+
+        .team-text {
+            font-size: 22px;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin-bottom: 50px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            padding: 20px 50px;
+            background: var(--secondary-blue);
+            color: white;
+            text-decoration: none;
+            font-family: 'Alibaba-PuHuiTi-Bold';
+            font-size: 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 163, 224, 0.3);
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 75, 141, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+        
+        /* Decorative Elements */
+        .decor-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--secondary-blue), transparent);
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Más de 20 Años de Excelencia<br>en Empaque Flexible</h1>
+            <p class="hero-subtitle">Innovación, calidad y compromiso con nuestros clientes</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="ri-arrow-down-double-line"></i>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="mv-card">
+            <i class="ri-flag-fill mv-icon"></i>
+            <h2 class="mv-title">Nuestra Misión</h2>
+            <p class="mv-text">Crear soluciones de empaque que protejan productos y fortalezcan marcas, asegurando la integridad de cada entrega con tecnología de punta.</p>
+        </div>
+        <div class="mv-card">
+            <i class="ri-eye-fill mv-icon"></i>
+            <h2 class="mv-title">Nuestra Visión</h2>
+            <p class="mv-text">Ser líderes en innovación de empaque flexible en América Latina, reconocidos por nuestra capacidad de adaptación y sustentabilidad.</p>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section">
+        <div class="section-header">
+            <h2 class="section-title">Nuestros Valores</h2>
+            <p class="section-desc">Los pilares que sostienen nuestra operación y garantizan la excelencia en cada producto que entregamos.</p>
+        </div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon-box">
+                    <i class="ri-shield-star-line"></i>
+                </div>
+                <h3 class="value-title">Calidad</h3>
+                <p class="value-text">Estándares rigurosos en cada proceso de manufactura.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box">
+                    <i class="ri-lightbulb-line"></i>
+                </div>
+                <h3 class="value-title">Innovación</h3>
+                <p class="value-text">Búsqueda constante de nuevas tecnologías y materiales.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box">
+                    <i class="ri-shake-hands-line"></i>
+                </div>
+                <h3 class="value-title">Compromiso</h3>
+                <p class="value-text">Dedicación total al éxito y satisfacción de nuestros clientes.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon-box">
+                    <i class="ri-leaf-line"></i>
+                </div>
+                <h3 class="value-title">Sostenibilidad</h3>
+                <p class="value-text">Responsabilidad ambiental en nuestras soluciones de empaque.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline-section">
+        <div class="section-header" style="text-align: center;">
+            <h2 class="section-title">Nuestra Trayectoria</h2>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            
+            <!-- 2000s -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2000s</div>
+                    <h3 class="timeline-title">Fundación</h3>
+                    <p class="timeline-desc">BPack nace con la visión de revolucionar el mercado de empaques flexibles, estableciendo nuestra primera planta de producción.</p>
+                </div>
+            </div>
+
+            <!-- 2010s -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2010s</div>
+                    <h3 class="timeline-title">Expansión Regional</h3>
+                    <p class="timeline-desc">Consolidación en el mercado nacional e inicio de exportaciones. Ampliación de capacidad instalada y nuevas líneas de producto.</p>
+                </div>
+            </div>
+
+            <!-- 2020s -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020s</div>
+                    <h3 class="timeline-title">Innovación y Futuro</h3>
+                    <p class="timeline-desc">Implementación de tecnologías sostenibles y certificaciones globales. Liderazgo en empaques eco-amigables.</p>
+                </div>
+            </div>
+        </div>
+        <div class="decor-circle" style="width: 400px; height: 400px; top: 10%; left: -100px;"></div>
+        <div class="decor-circle" style="width: 300px; height: 300px; bottom: 10%; right: -50px;"></div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="cert-section">
+        <h2 class="cert-title">Certificaciones y Estándares</h2>
+        <div class="cert-grid">
+            <div class="cert-badge">
+                <i class="ri-verified-badge-line cert-icon"></i>
+                <div class="cert-name">FSSC 22000</div>
+                <div class="cert-sub">Inocuidad Alimentaria</div>
+            </div>
+            <div class="cert-badge">
+                <i class="ri-global-line cert-icon"></i>
+                <div class="cert-name">SMETA</div>
+                <div class="cert-sub">Auditoría Ética</div>
+            </div>
+            <div class="cert-badge">
+                <i class="ri-medal-line cert-icon"></i>
+                <div class="cert-name">ISO 9001</div>
+                <div class="cert-sub">Gestión de Calidad</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-content">
+            <span class="team-tag">Talento Humano</span>
+            <h2 class="team-title">Nuestro Equipo</h2>
+            <p class="team-text">Detrás de cada empaque hay un equipo apasionado de expertos comprometidos con la excelencia. Fomentamos un ambiente de crecimiento continuo, diversidad y colaboración.</p>
+            <a href="#" class="btn-cta">Únete a Nuestro Equipo</a>
+        </div>
+        <div class="team-image-box">
+            <!-- Decorative elements representing team abstractly -->
+            <i class="ri-team-line team-image-placeholder"></i>
+            <div style="position: absolute; bottom: 30px; left: 30px; right: 30px; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 12px;">
+                <div style="font-family: 'Alibaba-PuHuiTi-Bold'; font-size: 20px; color: var(--dark-blue);">Cultura BPack</div>
+                <div style="font-size: 14px; color: var(--text-grey);">Pasión por el detalle</div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

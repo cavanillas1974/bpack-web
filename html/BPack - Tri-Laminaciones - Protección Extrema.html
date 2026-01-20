@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>BPack - Tri-Laminaciones</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        /* Fonts */
+        @font-face {
+            font-family: 'AlimamaShuHeiTi';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/AlimamaShuHeiTi-Bold.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'MiSans-Regular';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'MiSans-Bold';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/MiSans-Bold.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'AlibabaSans-Medium';
+            src: url('../imagenes/https://assets-persist.lovart.ai/agent-static-assets/AlibabaSans-Medium.otf') format('opentype');
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'MiSans-Regular', sans-serif;
+            background-color: #0B1120; /* Deep Industrial Blue/Black */
+            color: #E2E8F0;
+            width: 1920px;
+            margin: 0 auto;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'AlimamaShuHeiTi', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            line-height: 1.8;
+            color: #94A3B8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 1920px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 100px;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #38BDF8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-family: 'AlibabaSans-Medium';
+            font-size: 16px;
+            color: #E2E8F0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38BDF8;
+        }
+
+        .header-cta {
+            padding: 12px 30px;
+            border: 1px solid #38BDF8;
+            color: #38BDF8;
+            border-radius: 4px;
+            font-family: 'AlibabaSans-Medium';
+            transition: all 0.3s;
+        }
+
+        .header-cta:hover {
+            background: #38BDF8;
+            color: #0B1120;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 900px;
+            position: relative;
+            background-image: url('../imagenes/https://a.lovart.ai/artifacts/agent/C8iQQyNgW7uaYzs9.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 100px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #0B1120 0%, rgba(11, 17, 32, 0.9) 40%, rgba(11, 17, 32, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid #38BDF8;
+            color: #38BDF8;
+            padding: 8px 16px;
+            font-size: 14px;
+            margin-bottom: 24px;
+            font-family: 'AlibabaSans-Medium';
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, #fff, #94A3B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 24px;
+            max-width: 650px;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            background: #38BDF8;
+            color: #0B1120;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-family: 'MiSans-Bold';
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateX(10px);
+            background: #0EA5E9;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 120px 100px;
+            background: #0F172A;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-bg-grid {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: radial-gradient(#38BDF8 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .tech-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-info h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .tech-desc {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .tech-points {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .tech-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .tech-point i {
+            font-size: 24px;
+            color: #38BDF8;
+            background: rgba(56, 189, 248, 0.1);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .tech-point h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #fff;
+            font-family: 'MiSans-Bold';
+        }
+
+        .tech-point p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 3D Layer Visualization */
+        .tech-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1200px;
+        }
+
+        .layers-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            transform: rotateX(55deg) rotateZ(-45deg);
+            transform-style: preserve-3d;
+        }
+
+        .layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .layer-1 {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 2px solid #334155;
+            transform: translateZ(0px);
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        .layer-2 {
+            background: linear-gradient(135deg, #38BDF8, #2563EB);
+            border: 2px solid #60A5FA;
+            transform: translateZ(80px);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .layer-3 {
+            background: linear-gradient(135deg, #94A3B8, #E2E8F0);
+            border: 2px solid #fff;
+            transform: translateZ(160px);
+            opacity: 0.9;
+            z-index: 3;
+        }
+
+        /* Floating Labels for Layers */
+        .layer-label {
+            position: absolute;
+            padding: 10px 20px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid #38BDF8;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'AlibabaSans-Medium';
+            border-radius: 4px;
+            white-space: nowrap;
+            pointer-events: none;
+            transform: rotateZ(45deg) rotateX(-55deg); /* Counter rotate to face front */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        .label-1 { top: 80%; right: -20%; transform-origin: left center; }
+        .label-2 { top: 50%; right: -30%; transform-origin: left center; }
+        .label-3 { top: 20%; right: -20%; transform-origin: left center; }
+
+        .line-connector {
+            position: absolute;
+            height: 1px;
+            background: #38BDF8;
+            transform-origin: left center;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 100px 100px;
+            background: #0B1120;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: #1E293B;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border-top: 3px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-top-color: #38BDF8;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .benefit-icon {
+            font-size: 40px;
+            color: #38BDF8;
+            margin-bottom: 25px;
+        }
+
+        .benefit-card h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-family: 'MiSans-Bold';
+        }
+
+        .benefit-card p {
+            font-size: 15px;
+            color: #94A3B8;
+        }
+
+        /* Applications Section */
+        .applications {
+            padding: 100px 100px;
+            background: #0F172A;
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .app-card {
+            display: flex;
+            background: #1E293B;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            transition: all 0.3s;
+        }
+
+        .app-card:hover {
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+        }
+
+        .app-visual {
+            width: 40%;
+            background: #2D3748;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Generative Visuals for Applications instead of images */
+        .visual-pharma {
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+        }
+        .visual-electro {
+            background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+        }
+        .visual-luxury {
+            background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+        }
+        .visual-sensitive {
+            background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+        }
+
+        .app-visual i {
+            font-size: 60px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .app-content {
+            width: 60%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .app-content h3 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-family: 'MiSans-Bold';
+        }
+
+        /* Tech Specs */
+        .specs {
+            padding: 100px 100px;
+            background: #0B1120;
+        }
+
+        .specs-container {
+            display: flex;
+            gap: 60px;
+        }
+
+        .specs-intro {
+            flex: 1;
+        }
+
+        .specs-intro h2 {
+            font-size: 42px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .specs-intro p {
+            margin-bottom: 30px;
+        }
+
+        .spec-download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #38BDF8;
+            font-family: 'AlibabaSans-Medium';
+            border-bottom: 1px solid #38BDF8;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .specs-table {
+            flex: 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .spec-item {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid #334155;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .spec-label {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #94A3B8;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .spec-value {
+            font-size: 20px;
+            color: #fff;
+            font-family: 'MiSans-Bold';
+        }
+
+        .spec-bar {
+            height: 4px;
+            background: #334155;
+            margin-top: 15px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .spec-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: #38BDF8;
+            border-radius: 2px;
+        }
+
+        /* Case Studies */
+        .cases {
+            padding: 100px 100px;
+            background: #0F172A;
+            border-top: 1px solid #1E293B;
+        }
+
+        .cases-wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .case-card {
+            background: #0B1120;
+            padding: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #1E293B;
+        }
+
+        .case-header {
+            height: 8px;
+            background: #38BDF8;
+        }
+        
+        .case-body {
+            padding: 30px;
+        }
+
+        .case-meta {
+            font-size: 13px;
+            color: #38BDF8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-family: 'AlibabaSans-Medium';
+        }
+
+        .case-title {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-family: 'MiSans-Bold';
+        }
+
+        .case-result {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #1E293B;
+        }
+
+        .result-item h4 {
+            font-size: 24px;
+            color: #38BDF8;
+            font-family: 'AlimamaShuHeiTi';
+        }
+
+        .result-item span {
+            font-size: 12px;
+            color: #94A3B8;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px;
+            background: #38BDF8;
+            text-align: center;
+            color: #0B1120;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #0B1120;
+        }
+
+        .cta-section p {
+            color: #0F172A;
+            font-size: 20px;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .cta-btn {
+            background: #0B1120;
+            color: #fff;
+            padding: 20px 60px;
+            font-size: 18px;
+            font-family: 'MiSans-Bold';
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+            color: #0B1120;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            padding: 60px 100px;
+            border-top: 1px solid #1E293B;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-family: 'AlimamaShuHeiTi';
+            color: #fff;
+        }
+        
+        .footer-logo span { color: #38BDF8; }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <i class="ri-layers-fill" style="color:#38BDF8;"></i>
+            BPack<span>.</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#">Soluciones</a>
+            <a href="#">Tecnología</a>
+            <a href="#">Industrias</a>
+            <a href="#">Sobre Nosotros</a>
+        </nav>
+        <a href="#" class="header-cta">Contactar Ventas</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">TECNOLOGÍA AVANZADA</span>
+            <h1>Tri-Laminaciones para<br>Aplicaciones Especiales</h1>
+            <p>Soluciones de ingeniería multicapa que ofrecen protección máxima para productos sensibles en entornos exigentes.</p>
+            <button class="hero-btn">
+                Explorar Soluciones <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="tech-bg-grid"></div>
+        <div class="tech-info">
+            <h2>Tecnología de<br>Tri-Laminación</h2>
+            <p class="tech-desc">Nuestro proceso patentado fusiona tres capas especializadas para crear una barrera impenetrable contra factores ambientales.</p>
+            
+            <div class="tech-points">
+                <div class="tech-point">
+                    <i class="ri-shield-check-line"></i>
+                    <div>
+                        <h4>Protección Máxima</h4>
+                        <p>Blindaje completo contra contaminantes externos.</p>
+                    </div>
+                </div>
+                <div class="tech-point">
+                    <i class="ri-separator"></i>
+                    <div>
+                        <h4>Alta Barrera</h4>
+                        <p>Índice de transmisión cercano a cero.</p>
+                    </div>
+                </div>
+                <div class="tech-point">
+                    <i class="ri-hammer-line"></i>
+                    <div>
+                        <h4>Durabilidad Extrema</h4>
+                        <p>Resistencia a la perforación y rasgado.</p>
+                    </div>
+                </div>
+                <div class="tech-point">
+                    <i class="ri-drop-line"></i>
+                    <div>
+                        <h4>Anti-Humedad</h4>
+                        <p>Control total de la humedad relativa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Layer Visualization -->
+        <div class="tech-visual">
+            <div class="layers-container">
+                <div class="layer layer-1"></div>
+                <div class="layer-label label-1">Capa Interna: Sellante & Integridad</div>
+                
+                <div class="layer layer-2"></div>
+                <div class="layer-label label-2">Capa Media: Barrera de Aluminio/EVOH</div>
+                
+                <div class="layer layer-3"></div>
+                <div class="layer-label label-3">Capa Externa: Resistencia Estructural</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="section-header">
+            <h2>Beneficios de la Tri-Laminación</h2>
+            <p>Diseñado para superar los estándares de la industria, proporcionando seguridad y longevidad a sus productos.</p>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="ri-contrast-drop-2-line benefit-icon"></i>
+                <h3>Protección Humedad</h3>
+                <p>Mantiene los productos secos y estables incluso en condiciones de humedad tropical.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="ri-windy-line benefit-icon"></i>
+                <h3>Bloqueo de Oxígeno</h3>
+                <p>Previene la oxidación y extiende la vida útil de componentes sensibles.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="ri-medal-line benefit-icon"></i>
+                <h3>Durabilidad Extrema</h3>
+                <p>Estructura reforzada que soporta manipulación ruda y transporte logístico.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="ri-sun-line benefit-icon"></i>
+                <h3>Protección UV</h3>
+                <p>Bloqueo total de la luz para evitar la degradación fotoquímica del contenido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications">
+        <div class="section-header" style="text-align: left; margin-bottom: 50px;">
+            <h2>Aplicaciones Industriales</h2>
+        </div>
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="app-visual visual-pharma">
+                    <i class="ri-capsule-line"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Farmacéutica</h3>
+                    <p>Protección crítica para medicamentos higroscópicos y dispositivos médicos estériles.</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-visual visual-electro">
+                    <i class="ri-cpu-line"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Electrónica</h3>
+                    <p>Embalaje antiestático y barrera contra la humedad para semiconductores y PCBs.</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-visual visual-luxury">
+                    <i class="ri-vip-diamond-line"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Productos Premium</h3>
+                    <p>Acabados de alta gama y protección para bienes de consumo de lujo y cosmética.</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-visual visual-sensitive">
+                    <i class="ri-flask-line"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Químicos Sensibles</h3>
+                    <p>Contención segura para reactivos y materiales industriales volátiles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="specs">
+        <div class="specs-container">
+            <div class="specs-intro">
+                <h2>Especificaciones<br>Técnicas</h2>
+                <p>Nuestras láminas se someten a rigurosas pruebas de laboratorio para garantizar el cumplimiento de normas internacionales ISO y ASTM.</p>
+                <div class="spec-download-btn">
+                    <i class="ri-file-download-line"></i> Descargar Ficha Técnica Completa
+                </div>
+            </div>
+            <div class="specs-table">
+                <div class="spec-item">
+                    <div class="spec-label">Transmisión de Vapor de Agua (WVTR)</div>
+                    <div class="spec-value">&lt; 0.01 g/m²/24h</div>
+                    <div class="spec-bar"><div class="spec-bar-fill" style="width: 98%;"></div></div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Transmisión de Oxígeno (OTR)</div>
+                    <div class="spec-value">&lt; 0.01 cc/m²/24h</div>
+                    <div class="spec-bar"><div class="spec-bar-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Resistencia a la Punción</div>
+                    <div class="spec-value">> 25 N</div>
+                    <div class="spec-bar"><div class="spec-bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Fuerza de Sellado</div>
+                    <div class="spec-value">> 45 N/15mm</div>
+                    <div class="spec-bar"><div class="spec-bar-fill" style="width: 90%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="cases">
+        <div class="section-header">
+            <h2>Casos de Éxito</h2>
+        </div>
+        <div class="cases-wrapper">
+            <div class="case-card">
+                <div class="case-header"></div>
+                <div class="case-body">
+                    <div class="case-meta">Farmacéutica Global</div>
+                    <h3 class="case-title">Extensión de vida útil en vacunas liofilizadas</h3>
+                    <p>Implementación de barrera tri-laminada para transporte intercontinental sin cadena de frío estricta.</p>
+                    <div class="case-result">
+                        <div class="result-item">
+                            <h4>+40%</h4>
+                            <span>Vida Útil</span>
+                        </div>
+                        <div class="result-item">
+                            <h4>0%</h4>
+                            <span>Humedad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-header" style="background:#10B981"></div>
+                <div class="case-body">
+                    <div class="case-meta" style="color:#10B981">Electrónica Automotriz</div>
+                    <h3 class="case-title">Protección de sensores durante exportación marítima</h3>
+                    <p>Solución contra la corrosión salina para sensores de alta precisión enviados a Asia.</p>
+                    <div class="case-result">
+                        <div class="result-item">
+                            <h4 style="color:#10B981">100%</h4>
+                            <span>Integridad</span>
+                        </div>
+                        <div class="result-item">
+                            <h4 style="color:#10B981">-15%</h4>
+                            <span>Costos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-header" style="background:#F59E0B"></div>
+                <div class="case-body">
+                    <div class="case-meta" style="color:#F59E0B">Alimentos Deshidratados</div>
+                    <h3 class="case-title">Preservación de aroma y textura en café premium</h3>
+                    <p>Envases de alta barrera que mantienen las propiedades organolépticas intactas por 24 meses.</p>
+                    <div class="case-result">
+                        <div class="result-item">
+                            <h4 style="color:#F59E0B">24m</h4>
+                            <span>Frescura</span>
+                        </div>
+                        <div class="result-item">
+                            <h4 style="color:#F59E0B">Top</h4>
+                            <span>Calidad</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>¿Necesitas protección extrema?</h2>
+        <p>Hablemos sobre cómo nuestra tecnología puede asegurar el futuro de tu producto.</p>
+        <button class="cta-btn">Contactar a un Experto</button>
+    </section>
+
+    <footer>
+        <div class="footer-logo">BPack<span>.</span></div>
+        <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Uso</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Soporte</a>
+        </div>
+        <div style="color: #475569; font-size: 14px;">© 2023 BPack Technologies. All rights reserved.</div>
+    </footer>
+
+</div>
+
+</body>
+</html>

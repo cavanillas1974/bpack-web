@@ -35,7 +35,7 @@
 
             <nav class="nav-links">
                 <a href="#home" class="active">Inicio</a>
-                <a href="html/productos.html">Productos</a>
+                <a href="#soluciones">Soluciones</a>
                 <a href="#tecnologia">Tecnología</a>
                 <a href="#catalogo">Catálogo</a>
                 <a href="#nosotros">Nosotros</a>
@@ -72,8 +72,9 @@
     <!-- Discover / Solutions Section -->
     <section id="soluciones">
         <div class="container discover">
-            <div class="discover-image">
-                <img src="imagenes/bpack_discover_solutions_perras.png" alt="Proceso de Manufactura">
+            <div class="discover-image" onclick="openSolution('proteccion')" style="cursor: pointer;">
+                <img src="imagenes/bpack_discover_solutions_perras.png" alt="Proceso de Manufactura"
+                    class="hover-scale">
             </div>
             <div class="discover-content">
                 <span class="section-tag">Personalización Total</span>
@@ -212,9 +213,11 @@
             </div>
 
             <!-- Factory Panorama Visual -->
-            <div class="reveal-visible" style="margin-bottom: 80px; position: relative;">
+            <div class="reveal-visible" style="margin-bottom: 80px; position: relative; cursor: pointer;"
+                onclick="openInnovation('monitoreo-ia')">
                 <img src="imagenes/bpack_factory_main_hd_new.png" alt="Planta BPack Panorama"
-                    style="width: 100%; border-radius: 50px; box-shadow: var(--shadow-2xl); filter: brightness(0.9); display: block;">
+                    style="width: 100%; border-radius: 50px; box-shadow: var(--shadow-2xl); filter: brightness(0.9); display: block;"
+                    class="hover-scale">
 
                 <!-- Overlay Value Cards -->
                 <div
@@ -520,28 +523,32 @@
         style="background: var(--primary); padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);">
         <div class="container"
             style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 40px;">
-            <div style="text-align: center; color: var(--white);">
+            <div style="text-align: center; color: var(--white); cursor: pointer;" onclick="openScale('fssc')"
+                class="hover-scale">
                 <i class="ri-shield-star-line"
                     style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
                 <span style="font-weight: 700; font-size: 20px;">FSSC 22000</span>
                 <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Seguridad
                     Alimentaria</p>
             </div>
-            <div style="text-align: center; color: var(--white);">
+            <div style="text-align: center; color: var(--white); cursor: pointer;" onclick="openScale('monitoring')"
+                class="hover-scale">
                 <i class="ri-global-line"
                     style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
                 <span style="font-weight: 700; font-size: 20px;">SMETA</span>
                 <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Auditoría
                     Ética</p>
             </div>
-            <div style="text-align: center; color: var(--white);">
+            <div style="text-align: center; color: var(--white); cursor: pointer;"
+                onclick="openInnovation('polimeros-puros')" class="hover-scale">
                 <i class="ri-medal-line"
                     style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
                 <span style="font-weight: 700; font-size: 20px;">ISO 9001</span>
                 <p style="font-size: 12px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px;">Gestión de
                     Calidad</p>
             </div>
-            <div style="text-align: center; color: var(--white);">
+            <div style="text-align: center; color: var(--white); cursor: pointer;"
+                onclick="openSolution('sostenibilidad')" class="hover-scale">
                 <i class="ri-leaf-line"
                     style="font-size: 40px; color: var(--secondary); display: block; margin-bottom: 10px;"></i>
                 <span style="font-weight: 700; font-size: 20px;">ECO-Friendly</span>
@@ -609,9 +616,10 @@
                         </div>
                     </div>
                 </div>
-                <div style="position: relative;">
+                <div style="position: relative; cursor: pointer;" onclick="openScale('monitoring')">
                     <img src="imagenes/bpack_factory_main_hd_new.png" alt="Maquinaria BPack"
-                        style="width: 100%; border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
+                        style="width: 100%; border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5);"
+                        class="hover-scale">
                     <div style="position: absolute; bottom: -30px; right: -30px; width: 250px; background: var(--primary); padding: 30px; border-radius: 30px; box-shadow: var(--shadow-lg); cursor: pointer;"
                         class="hover-scale" onclick="openInnovation('id-permanente')">
                         <img src="imagenes/bpack_innovation_materials_hd_new.png" alt="Innovación"
@@ -762,11 +770,11 @@
                 <div class="footer-nav">
                     <h4>Empresa</h4>
                     <ul>
-                        <li><a href="html/productos.html">Productos</a></li>
+                        <li><a href="#catalogo">Productos</a></li>
                         <li><a href="#nosotros">Historia</a></li>
                         <li><a href="#soluciones">Valores</a></li>
-                        <li><a href="#">Sustentabilidad</a></li>
-                        <li><a href="#">Bolsa de Trabajo</a></li>
+                        <li><a href="#tecnologia">Tecnología</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
 

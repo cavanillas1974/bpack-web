@@ -219,24 +219,24 @@
                 <!-- Overlay Value Cards -->
                 <div
                     style="display: flex; justify-content: center; gap: 30px; margin-top: -60px; position: relative; z-index: 10; padding: 0 20px;">
-                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
-                        class="hover-scale">
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('monitoreo-ia')">
                         <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">100%
                         </h4>
                         <p
                             style="font-size: 13px; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
                             Automatización</p>
                     </div>
-                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
-                        class="hover-scale">
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition); cursor: pointer;"
+                        class="hover-scale" onclick="openScale('fssc')">
                         <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">FSSC
                         </h4>
                         <p
                             style="font-size: 13px; opacity: 0.8; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
                             Inocuidad Total</p>
                     </div>
-                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition);"
-                        class="hover-scale">
+                    <div style="background: var(--white); padding: 30px; border-radius: 35px; box-shadow: var(--shadow-lg); text-align: center; width: 280px; border-bottom: 5px solid var(--secondary); transition: var(--transition); cursor: pointer;"
+                        class="hover-scale" onclick="openInnovation('color-hd')">
                         <h4 style="color: var(--secondary); font-size: 32px; margin-bottom: 5px; font-weight: 800;">9Col
                         </h4>
                         <p
@@ -579,7 +579,7 @@
                     </div>
                 </div>
             </div>
-            <div class="history-visual">
+            <div class="history-visual" onclick="openHistory('2026')" style="cursor: pointer;">
                 <img src="imagenes/Nuestra Historia - Evolución de BPack.png" alt="Evolución BPack"
                     style="border-radius: 40px; box-shadow: 0 40px 80px rgba(0,0,0,0.5);">
             </div>
@@ -631,12 +631,13 @@
                 <span class="section-tag">Confían en Nosotros</span>
                 <h2 class="section-title">Marcas Líderes que Protegen su Valor con BPack</h2>
             </div>
-            <div class="brands-grid">
-                <img src="imagenes/Marcas Líderes - Clientes de BPack_1.png" alt="Card 1" class="brand-card-img">
-                <img src="imagenes/Marcas Líderes - Clientes de BPack_2.png" alt="Card 2" class="brand-card-img">
-                <a href="#contacto" style="display: block;">
-                    <img src="imagenes/Marcas Líderes - Clientes de BPack_3.png" alt="Card 3" class="brand-card-img">
-                </a>
+            <div class="brands-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <img src="imagenes/Marcas Líderes - Clientes de BPack_1.png" alt="Card 1" class="brand-card-img"
+                    style="cursor: pointer;" onclick="openInnovation('id-permanente')">
+                <img src="imagenes/Marcas Líderes - Clientes de BPack_2.png" alt="Card 2" class="brand-card-img"
+                    style="cursor: pointer;" onclick="openScale('fssc')">
+                <img src="imagenes/Marcas Líderes - Clientes de BPack_3.png" alt="Card 3" class="brand-card-img"
+                    style="cursor: pointer;" onclick="openInnovation('monitoreo-ia')">
             </div>
         </div>
     </section>
@@ -652,32 +653,32 @@
             </div>
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
                 <img src="imagenes/download.jpg" alt="Producto 1"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('doypack')">
                 <img src="imagenes/download-1.jpg" alt="Producto 2"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('box-pouch')">
                 <img src="imagenes/download-2.jpg" alt="Producto 3"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('polifoil')">
                 <img src="imagenes/download-3.jpg" alt="Producto 4"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('bobinas')">
                 <img src="imagenes/download-4.jpg" alt="Producto 5"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('retortable')">
                 <img src="imagenes/download-5.jpg" alt="Producto 6"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('doypack')">
                 <img src="imagenes/download-6.jpg" alt="Producto 7"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('box-pouch')">
                 <img src="imagenes/download-7.jpg" alt="Producto 8"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('polifoil')">
                 <img src="imagenes/download-8.jpg" alt="Producto 9"
-                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition);"
-                    class="gallery-img">
+                    style="width: 100%; border-radius: 20px; aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow-sm); transition: var(--transition); cursor: pointer;"
+                    class="gallery-img" onclick="openProduct('bobinas')">
             </div>
         </div>
     </section>
@@ -1011,50 +1012,58 @@
             'proteccion': {
                 title: 'Blindaje de Frescura BPack',
                 tag: 'Barrera de Ingeniería',
-                desc: 'Nuestras soluciones de protección total utilizan co-extrusiones multicapa con polímeros de alto rendimiento como EVOH y Nylon. Estas estructuras están diseñadas para detener la migración de oxígeno, vapor de agua y aromas, asegurando que su producto mantenga sus propiedades organolépticas originales durante toda su vida de anaquel. No solo empacamos; aplicamos ciencia de materiales para crear un microclima perfecto que blinda la frescura contra factores externos como la oxidación y la deshidratación.',
-                img: 'imagenes/solution_protection_detail.png',
+                desc: 'Nuestras soluciones de protección total utilizan co-extrusiones multicapa con polímeros de alto rendimiento como EVOH y Nylon. Estas estructuras están diseñadas para detener la migración de oxígeno, vapor de agua y aromas, asegurando que su producto mantenga sus propiedades organolépticas originales durante toda su vida de anaquel.',
+                img: 'imagenes/bpack_premium_raw_hd_new.png',
                 specs: {
                     'Barrera O2': '< 1.0 cc/m2/day',
                     'Transmisión de Vapor': '< 0.5 g/m2/day',
                     'Protección UV': 'Hasta 99% mediante metalización',
                     'Resistencia Térmica': 'Apta para llenado en caliente'
-                }
+                },
+                why: 'Un empaque con mala barrera arruina el producto. Nuestra tecnología extiende el shelf-life hasta un 40% más que el promedio industrial.',
+                details: 'Utilizamos tecnología de extrusión de 7 capas que permite capas de barrera micrométricas pero impenetrables.'
             },
             'sostenibilidad': {
                 title: 'Compromiso Circular BPack',
                 tag: 'Empaque Eco-Consciente',
-                desc: 'Lideramos la transición hacia un futuro sin desperdicio. Nuestra línea de sostenibilidad ofrece estructuras monomateriales 100% reciclables y opciones biocompostables que se degradan de forma natural sin dejar microplásticos. Reducimos el espesor de las películas mediante optimización molecular (down-gauging) sin sacrificar la resistencia, lo que disminuye significativamente la huella de carbono y el uso de resinas vírgenes, permitiendo que su marca cumpla con los objetivos de ESG más ambiciosos.',
-                img: 'imagenes/solution_sustainability_detail.png',
+                desc: 'Lideramos la transición hacia un futuro sin desperdicio. Nuestra línea de sostenibilidad ofrece estructuras monomateriales 100% reciclables y opciones biocompostables que se degradan de forma natural sin dejar microplásticos.',
+                img: 'imagenes/bpack_innovation_materials_hd_new.png',
                 specs: {
                     'Materiales': 'PE/PE Monomaterial Reciclable',
                     'Reducción de Plástico': 'Hasta 30% via Down-gauging',
                     'Certificación': 'Protocolo de Economía Circular 2026',
                     'Biodegradabilidad': 'Opciones Compost Industrial/Home'
-                }
+                },
+                why: 'Las marcas líderes necesitan cumplir objetivos de ESG. BPack ofrece la solución lista para el anaquel que cumple con normativas internacionales.',
+                details: 'Nuestras estructuras eliminan el uso de adhesivos complejos facilitando el reciclaje mecánico de alta pureza.'
             },
             'alta-velocidad': {
                 title: 'Productividad Ininterrumpida',
                 tag: 'Eficiencia Operativa',
-                desc: 'El tiempo es oro en las líneas de envasado automáticas. Nuestras películas de alta velocidad están formuladas con un bajo Coeficiente de Fricción (COF) controlado y una ventana de sellado ultra-amplia que permite operar a las revoluciones máximas de su maquinaria (VFFS/HFFS). Eliminamos los problemas de "blocking" y "static", reduciendo drásticamente los paros técnicos y el desperdicio. Con BPack, su línea fluye con la precisión de un reloj suizo, maximizando el rendimiento por hora de su planta.',
-                img: 'imagenes/solution_speed_detail.png',
+                desc: 'El tiempo es oro en las líneas de envasado automáticas. Nuestras películas están formuladas con un COF controlado y una ventana de sellado ultra-amplia que permite operar a las revoluciones máximas de su maquinaria.',
+                img: 'imagenes/bpack_slitting_precision_hd_new.png',
                 specs: {
                     'COF Kinético': '0.20 ± 0.05',
                     'Hot Tack': 'Superior a 5.0 N/inc',
                     'Velocidad Op': 'Hasta 150 golpes/minuto',
                     'Estabilidad': 'Control anti-estático HD'
-                }
+                },
+                why: 'Cada segundo de paro es pérdida. Optimizamos la película para que deslice y selle instantáneamente en máquinas Bosar, Volpak o Mespack.',
+                details: 'Incorporamos aditivos de deslizamiento migratorios y no migratorios para mantener el COF estable incluso tras meses de almacenamiento.'
             },
             'impresion-hd': {
                 title: 'Hiper-Realismo en Anaquel',
                 tag: 'Vibrancia Gráfica',
-                desc: 'Su marca merece brillar. Nuestra tecnología de impresión HD Flexo utiliza planchas de punto plano (Flat-Top Dot) y sistemas de gestión de color espectrofotométrico para lograr una fidelidad fotográfica que cautiva al consumidor. Logramos degradados suaves, negros profundos y colores corporativos consistentes en cada tiraje. El impacto visual es comparable al rotograbado pero con la agilidad y el costo eficiente de la flexografía moderna, asegurando que su producto sea el protagonista absoluto en el anaquel.',
-                img: 'imagenes/solution_printing_detail.png',
+                desc: 'Su marca merece brillar. Nuestra tecnología de impresión HD Flexo utiliza planchas de punto plano (Flat-Top Dot) para lograr una fidelidad fotográfica que cautiva al consumidor.',
+                img: 'imagenes/bpack_color_hd_registration_perras.png',
                 specs: {
                     'Lineatura': '175 - 200 LPI',
                     'Gama': '9 Estaciones de Color',
                     'Precisión': 'Registro Digital Automatizado',
                     'Acabados': 'Barniz Mate, Brillo, Soft-Touch'
-                }
+                },
+                why: 'En el anaquel tienes 3 segundos. BPack garantiza colores vivos y consistentes que detienen al comprador.',
+                details: 'Utilizamos sistemas de gestión de color espectrofotométrico X-Rite para asegurar que el Delta-E sea menor a 2.0.'
             }
         };
 
@@ -1248,14 +1257,28 @@
                         <h2 style="font-size: 52px; color: var(--primary); margin-bottom: 24px; line-height: 1.1;">${data.title}</h2>
                         <p style="font-size: 20px; opacity: 0.8; line-height: 1.6; margin-bottom: 40px;">${data.desc}</p>
                         
-                        <div style="background: #f1f5f9; padding: 40px; border-radius: 30px; margin-bottom: 40px;">
-                            <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 18px;">Ventaja BPack</h3>
-                            <p style="font-size: 16px; opacity: 0.8;">Nuestras soluciones están diseñadas bajo los más estrictos estándares internacionales de calidad e inocuidad, garantizando que su producto llegue perfecto al anaquel.</p>
+                        ${data.why ? `
+                        <div style="background: #f1f5f9; padding: 40px; border-radius: 30px; margin-bottom: 40px; border-left: 5px solid var(--secondary);">
+                            <h3 style="color: var(--primary); margin-bottom: 10px; font-size: 18px;">¿Por qué es crucial?</h3>
+                            <p style="font-size: 16px; opacity: 0.8;">${data.why}</p>
+                        </div>
+                        ` : ''}
+
+                        ${data.details ? `
+                        <div style="margin-bottom: 40px; padding: 0 40px;">
+                            <h3 style="color: var(--primary); margin-bottom: 10px; font-size: 18px;">Ingeniería de Proceso</h3>
+                            <p style="font-size: 16px; opacity: 0.8;">${data.details}</p>
+                        </div>
+                        ` : ''}
+
+                        <div style="background: var(--primary); color: white; padding: 40px; border-radius: 30px; margin-bottom: 40px;">
+                            <h3 style="color: var(--secondary); margin-bottom: 10px; font-size: 18px;">Certificación BPack</h3>
+                            <p style="font-size: 16px; opacity: 0.9;">Nuestras soluciones cumplen con los más estrictos protocolos de inocuidad alimentaria FSSC 22000 y SMETA, asegurando integridad total desde la planta hasta el anaquel.</p>
                         </div>
                         
                         <div style="display: flex; gap: 20px; margin-top: 50px;">
-                            <a href="#contacto" onclick="${closeFn.name}()" class="btn btn-primary" style="flex: 1; justify-content: center;">Solicitar Asesoría</a>
-                            <button onclick="${closeFn.name}()" class="btn" style="border: 1px solid var(--border); border-radius: 50px; padding: 15px 30px; font-weight: 700;">Volver</button>
+                            <a href="#contacto" onclick="${closeFn.name}()" class="btn btn-primary" style="flex: 1; justify-content: center;">Solicitar Cotización Técnica</a>
+                            <button onclick="${closeFn.name}()" class="btn" style="border: 1px solid var(--border); border-radius: 50px; padding: 15px 30px; font-weight: 700; cursor: pointer;">Cerrar Vista</button>
                         </div>
                     </div>
                 </div>

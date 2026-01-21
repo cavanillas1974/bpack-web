@@ -132,9 +132,8 @@
             <div class="horizontal-scroller"
                 style="display: flex; gap: 30px; overflow-x: auto; padding: 40px 0; scrollbar-width: none; -ms-overflow-style: none;">
                 <!-- Card 1: Box Pouch -->
-                <div class="dynamic-card" onclick="openProduct('box-pouch')"
-                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
-                    class="hover-scale">
+                <div class="dynamic-card hover-scale" onclick="openProduct('box-pouch')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);">
                     <img src="Productos-img/BOX_POUCH_HD.png"
                         style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                     <span
@@ -145,9 +144,8 @@
                 </div>
 
                 <!-- Card 2: Doypack -->
-                <div class="dynamic-card" onclick="openProduct('doypack')"
-                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
-                    class="hover-scale">
+                <div class="dynamic-card hover-scale" onclick="openProduct('doypack')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);">
                     <img src="imagenes/bpack_doypack_hd.png"
                         style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                     <span
@@ -158,9 +156,8 @@
                 </div>
 
                 <!-- Card 3: Polifoil -->
-                <div class="dynamic-card" onclick="openProduct('polifoil')"
-                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
-                    class="hover-scale">
+                <div class="dynamic-card hover-scale" onclick="openProduct('polifoil')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);">
                     <img src="Productos-img/PET-POLIFOIL_HD.png"
                         style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                     <span
@@ -172,9 +169,8 @@
                 </div>
 
                 <!-- Card 4: Bobinas -->
-                <div class="dynamic-card" onclick="openProduct('bobinas')"
-                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
-                    class="hover-scale">
+                <div class="dynamic-card hover-scale" onclick="openProduct('bobinas')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);">
                     <img src="imagenes/bpack_laminated_roll_hd.png"
                         style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                     <span
@@ -185,9 +181,8 @@
                 </div>
 
                 <!-- Card 5: Retortable -->
-                <div class="dynamic-card" onclick="openProduct('retortable')"
-                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);"
-                    class="hover-scale">
+                <div class="dynamic-card hover-scale" onclick="openProduct('retortable')"
+                    style="flex: 0 0 350px; background: #f8fafc; border-radius: 40px; padding: 40px; cursor: pointer; transition: var(--transition); border: 1px solid var(--border);">
                     <img src="imagenes/bpack_retortable_hd.png"
                         style="width: 100%; height: 280px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));">
                     <span
@@ -365,8 +360,8 @@
                             <h3 style="color: var(--primary); margin-bottom: 10px;">Refiladora de Alta Velocidad</h3>
                             <p style="font-size: 14px; opacity: 0.7;">Corte de precisión micrométrica. Rollos perfectos
                                 para que su línea de envasado nunca se detenga.</p>
-                            <span
-                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Detalle
+                            <span onclick="openMachine('slitter-pro')"
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;">Detalle
                                 de Corte -></span>
                         </div>
                     </div>
@@ -381,8 +376,8 @@
                             <h3 style="color: var(--primary); margin-bottom: 10px;">Stand-up Pouch EKT</h3>
                             <p style="font-size: 14px; opacity: 0.7;">Formación automatizada de pouches con ziper y
                                 válvula. Innovación en formatos de anaquel.</p>
-                            <span
-                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Ver
+                            <span onclick="openMachine('pouch-ekt')"
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;">Ver
                                 Ingeniería de Bolsa -></span>
                         </div>
                     </div>
@@ -397,8 +392,8 @@
                             <h3 style="color: var(--primary); margin-bottom: 10px;">Laboratorio Digital BPack</h3>
                             <p style="font-size: 14px; opacity: 0.7;">Inspección científica 24/7. Pruebas de tensión,
                                 punción y barrera para cada lote.</p>
-                            <span
-                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Ver
+                            <span onclick="openMachine('quality-lab')"
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;">Ver
                                 Protocolo de Calidad -></span>
                         </div>
                     </div>
@@ -414,8 +409,8 @@
                             </h3>
                             <p style="font-size: 14px; opacity: 0.7;">Tecnología para empaques respirables.
                                 Micro-perforación controlada para frescura extendida en perecederos.</p>
-                            <span
-                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block;">Explorar
+                            <span onclick="openMachine('laser-perf')"
+                                style="color: var(--secondary); font-weight: 700; font-size: 14px; margin-top: 20px; display: block; cursor: pointer;">Explorar
                                 Ingeniería Láser -></span>
                         </div>
                     </div>
